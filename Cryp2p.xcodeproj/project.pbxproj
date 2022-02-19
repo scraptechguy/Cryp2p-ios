@@ -15,6 +15,7 @@
 		902316B127C1546500651CAF /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902316B027C1546500651CAF /* OnboardingView.swift */; };
 		902316B427C154A700651CAF /* ContentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902316B327C154A700651CAF /* ContentModel.swift */; };
 		902316B627C1563E00651CAF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 902316B527C1563E00651CAF /* LaunchScreen.storyboard */; };
+		908B7E2D27C15E8500CB3473 /* LabelStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B7E2C27C15E8500CB3473 /* LabelStyles.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -27,6 +28,7 @@
 		902316B027C1546500651CAF /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		902316B327C154A700651CAF /* ContentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentModel.swift; sourceTree = "<group>"; };
 		902316B527C1563E00651CAF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		908B7E2C27C15E8500CB3473 /* LabelStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelStyles.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,6 +62,7 @@
 			isa = PBXGroup;
 			children = (
 				9023169B27C1513300651CAF /* Cryp2pApp.swift */,
+				908B7E2B27C15E7100CB3473 /* Helpers */,
 				902316AC27C1543B00651CAF /* Views */,
 				9023169F27C1513400651CAF /* Assets.xcassets */,
 				902316A127C1513400651CAF /* Preview Content */,
@@ -109,6 +112,14 @@
 				902316B327C154A700651CAF /* ContentModel.swift */,
 			);
 			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		908B7E2B27C15E7100CB3473 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				908B7E2C27C15E8500CB3473 /* LabelStyles.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -186,6 +197,7 @@
 				902316B127C1546500651CAF /* OnboardingView.swift in Sources */,
 				902316B427C154A700651CAF /* ContentModel.swift in Sources */,
 				9023169C27C1513300651CAF /* Cryp2pApp.swift in Sources */,
+				908B7E2D27C15E8500CB3473 /* LabelStyles.swift in Sources */,
 				902316AA27C1542D00651CAF /* LaunchView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
