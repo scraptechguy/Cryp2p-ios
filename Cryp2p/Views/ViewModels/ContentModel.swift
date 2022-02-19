@@ -6,7 +6,10 @@
 //
 
 import Foundation
+import SwiftUI
 
 class ContentModel: ObservableObject {
+    // MARK: Screen bounds
     
+    let screenSize: CGRect = UIScreen.main.bounds
 }
