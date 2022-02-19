@@ -25,6 +25,27 @@ struct HomeView: View {
             }.tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
                 .frame(width: model.screenSize.width, height: model.screenSize.height)
                 .ignoresSafeArea()
+            
+            VStack {
+                Spacer()
+                
+                HStack {
+                    Button(action: {model.viewShown = 0},
+                           label: {
+                                Text("0")
+                    })
+                    
+                    Button(action: {model.viewShown = 1},
+                           label: {
+                                Text("1")
+                    })
+                    
+                    Button(action: {model.viewShown = 2},
+                           label: {
+                                Text("2")
+                    })
+                }.padding([.bottom], model.screenSize.width / 10)
+            }.ignoresSafeArea()
         }
     }
 }
