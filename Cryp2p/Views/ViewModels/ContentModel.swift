@@ -16,7 +16,13 @@ class ContentModel: ObservableObject {
     
     // MARK: UI Colors
     
-    @Published var bg: Color = Color(red: 1, green: 1, blue: 1)
+    //@Published var bg = Color(red: 210 / 255, green: 39 / 255, blue: 122 / 255)
+    //@Published var bg = Color(red: 12 / 255, green: 29 / 255, blue: 127 / 255)
+    @Published var bg = Color(red: 255 / 255, green: 227 / 255, blue: 227 / 255)
+    @Published var buttonClr = Color(red: 255 / 255, green: 0 / 255, blue: 140 / 255)
+    @Published var fontClr = Color(red: 1, green: 1, blue: 1)
     
     @Published var viewShown: Int = 0
+    
+    @Published var showingMenuSheet: Bool = false
 }

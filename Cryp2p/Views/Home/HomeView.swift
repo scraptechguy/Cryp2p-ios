@@ -42,12 +42,12 @@ struct HomeView: View {
                                     Image(systemName: "arrow.down.app.fill")
                                         .resizable()
                                         .frame(width: model.screenSize.width / 15, height: model.screenSize.width / 15)
-                                        .foregroundColor(model.bg)
+                                        .foregroundColor(model.buttonClr)
                                 } else {
                                     Image(systemName: "arrow.down.app")
                                         .resizable()
                                         .frame(width: model.screenSize.width / 15, height: model.screenSize.width / 15)
-                                        .foregroundColor(model.bg)
+                                        .foregroundColor(model.buttonClr)
                                 }
                     })
                     
@@ -64,18 +64,18 @@ struct HomeView: View {
                                         Circle()
                                             .fill()
                                             .frame(width: model.screenSize.width / 6, height: model.screenSize.width / 6)
-                                            .foregroundColor(Color.purple)
+                                            .foregroundColor(model.buttonClr)
                                     } else {
                                         Circle()
                                             .fill()
                                             .frame(width: model.screenSize.width / 6, height: model.screenSize.width / 6)
-                                            .foregroundColor(Color.blue)
+                                            .foregroundColor(Color.purple)
                                     }
                                     
                                     Image(systemName: "qrcode.viewfinder")
                                         .resizable()
                                         .frame(width: model.screenSize.width / 12, height: model.screenSize.width / 12)
-                                        .foregroundColor(model.bg)
+                                        .foregroundColor(model.fontClr)
                                 }
                     }).padding([.bottom], model.screenSize.width / 15)
                     
@@ -91,12 +91,12 @@ struct HomeView: View {
                                     Image(systemName: "location.fill")
                                         .resizable()
                                         .frame(width: model.screenSize.width / 15, height: model.screenSize.width / 15)
-                                        .foregroundColor(model.bg)
+                                        .foregroundColor(model.buttonClr)
                                 } else {
                                     Image(systemName: "location")
                                         .resizable()
                                         .frame(width: model.screenSize.width / 15, height: model.screenSize.width / 15)
-                                        .foregroundColor(model.bg)
+                                        .foregroundColor(model.buttonClr)
 
                                 }
                     })
@@ -105,9 +105,28 @@ struct HomeView: View {
                 }.padding([.bottom], model.screenSize.width / 25)
                     .frame(width: model.screenSize.width, height: model.screenSize.width / 5)
                     .background(Rectangle()
-                                    .fill(Color.gray)
+                                    .fill(model.fontClr)
                     )
             }.ignoresSafeArea()
+            
+            VStack {
+                Button(action: {model.showingMenuSheet = true},
+                       label: {
+                    ZStack {
+                        Circle()
+                            .fill(model.buttonClr)
+                            .frame(width: model.screenSize.width / 7, height: model.screenSize.width / 7)
+                        
+                        Image(systemName: "gearshape")
+                            .resizable()
+                            .frame(width: model.screenSize.width / 15, height: model.screenSize.width / 15)
+                            .foregroundColor(model.fontClr)
+                    }
+                }).frame(width: model.screenSize.width / 1.1, alignment: .trailing)
+                
+                Spacer()
+            }.sheet(isPresented: $model.showingMenuSheet) {MenuSheet()}
+                .frame(height: model.screenSize.width / 0.5)
         }
     }
 }

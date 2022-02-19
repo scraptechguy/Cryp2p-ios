@@ -19,6 +19,7 @@
 		908B7E2F27C1605C00CB3473 /* SendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B7E2E27C1605C00CB3473 /* SendView.swift */; };
 		908B7E3127C160B200CB3473 /* ReceiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B7E3027C160B200CB3473 /* ReceiveView.swift */; };
 		908B7E3327C160C400CB3473 /* ScanView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B7E3227C160C400CB3473 /* ScanView.swift */; };
+		908B7E3627C16D5F00CB3473 /* MenuSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B7E3527C16D5F00CB3473 /* MenuSheet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,6 +36,7 @@
 		908B7E2E27C1605C00CB3473 /* SendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendView.swift; sourceTree = "<group>"; };
 		908B7E3027C160B200CB3473 /* ReceiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiveView.swift; sourceTree = "<group>"; };
 		908B7E3227C160C400CB3473 /* ScanView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanView.swift; sourceTree = "<group>"; };
+		908B7E3527C16D5F00CB3473 /* MenuSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuSheet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -70,6 +72,7 @@
 				9023169B27C1513300651CAF /* Cryp2pApp.swift */,
 				908B7E2B27C15E7100CB3473 /* Helpers */,
 				902316AC27C1543B00651CAF /* Views */,
+				908B7E3427C16D4800CB3473 /* SheetViews */,
 				9023169F27C1513400651CAF /* Assets.xcassets */,
 				902316A127C1513400651CAF /* Preview Content */,
 			);
@@ -129,6 +132,14 @@
 				908B7E2C27C15E8500CB3473 /* LabelStyles.swift */,
 			);
 			path = Helpers;
+			sourceTree = "<group>";
+		};
+		908B7E3427C16D4800CB3473 /* SheetViews */ = {
+			isa = PBXGroup;
+			children = (
+				908B7E3527C16D5F00CB3473 /* MenuSheet.swift */,
+			);
+			path = SheetViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -208,6 +219,7 @@
 				902316B427C154A700651CAF /* ContentModel.swift in Sources */,
 				9023169C27C1513300651CAF /* Cryp2pApp.swift in Sources */,
 				908B7E3327C160C400CB3473 /* ScanView.swift in Sources */,
+				908B7E3627C16D5F00CB3473 /* MenuSheet.swift in Sources */,
 				908B7E2D27C15E8500CB3473 /* LabelStyles.swift in Sources */,
 				908B7E2F27C1605C00CB3473 /* SendView.swift in Sources */,
 				902316AA27C1542D00651CAF /* LaunchView.swift in Sources */,
