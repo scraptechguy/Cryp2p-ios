@@ -17,7 +17,11 @@ struct HomeView: View {
             model.bg.ignoresSafeArea()
             
             TabView(selection: $model.viewShown) {
-                SendView().tag(0)
+                ReceiveView().tag(0)
+                
+                ScanView().tag(1)
+                
+                SendView().tag(2)
             }.tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
                 .frame(width: model.screenSize.width, height: model.screenSize.height)
                 .ignoresSafeArea()
