@@ -32,37 +32,77 @@ struct HomeView: View {
                 HStack {
                     Spacer()
                     
-                    Button(action: {model.viewShown = 0},
+                    Button(action: {
+                            withAnimation {
+                                model.viewShown = 0
+                            }
+                            },
                            label: {
-                                Text("0")
-                    })
-                    
-                    Spacer()
-                    
-                    Button(action: {model.viewShown = 1},
-                           label: {
-                                ZStack {
-                                    Circle()
-                                        .fill()
-                                        .frame(width: model.screenSize.width / 6, height: model.screenSize.width / 6)
-                                        .foregroundColor(Color.purple)
-                                    
-                                    Image(systemName: "qrcode.viewfinder")
+                                if model.viewShown == 0 {
+                                    Image(systemName: "arrow.down.app.fill")
                                         .resizable()
                                         .frame(width: model.screenSize.width / 15, height: model.screenSize.width / 15)
-                                        .foregroundColor(Color.white)
+                                        .foregroundColor(model.bg)
+                                } else {
+                                    Image(systemName: "arrow.down.app")
+                                        .resizable()
+                                        .frame(width: model.screenSize.width / 15, height: model.screenSize.width / 15)
+                                        .foregroundColor(model.bg)
                                 }
                     })
                     
                     Spacer()
                     
-                    Button(action: {model.viewShown = 2},
+                    Button(action: {
+                                withAnimation {
+                                    model.viewShown = 1
+                                }
+                            },
                            label: {
-                                Text("2")
+                                ZStack {
+                                    if model.viewShown == 1 {
+                                        Circle()
+                                            .fill()
+                                            .frame(width: model.screenSize.width / 6, height: model.screenSize.width / 6)
+                                            .foregroundColor(Color.purple)
+                                    } else {
+                                        Circle()
+                                            .fill()
+                                            .frame(width: model.screenSize.width / 6, height: model.screenSize.width / 6)
+                                            .foregroundColor(Color.blue)
+                                    }
+                                    
+                                    Image(systemName: "qrcode.viewfinder")
+                                        .resizable()
+                                        .frame(width: model.screenSize.width / 12, height: model.screenSize.width / 12)
+                                        .foregroundColor(model.bg)
+                                }
+                    }).padding([.bottom], model.screenSize.width / 15)
+                    
+                    Spacer()
+                    
+                    Button(action: {
+                                withAnimation {
+                                    model.viewShown = 2
+                                }
+                            },
+                           label: {
+                                if model.viewShown == 2 {
+                                    Image(systemName: "location.fill")
+                                        .resizable()
+                                        .frame(width: model.screenSize.width / 15, height: model.screenSize.width / 15)
+                                        .foregroundColor(model.bg)
+                                } else {
+                                    Image(systemName: "location")
+                                        .resizable()
+                                        .frame(width: model.screenSize.width / 15, height: model.screenSize.width / 15)
+                                        .foregroundColor(model.bg)
+
+                                }
                     })
                     
                     Spacer()
-                }.padding([.bottom], model.screenSize.width / 10)
+                }.padding([.bottom], model.screenSize.width / 25)
                     .frame(width: model.screenSize.width, height: model.screenSize.width / 5)
                     .background(Rectangle()
                                     .fill(Color.gray)
