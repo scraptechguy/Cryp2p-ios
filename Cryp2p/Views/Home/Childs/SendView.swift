@@ -16,5 +16,6 @@ struct SendView: View {
 struct SendView_Previews: PreviewProvider {
     static var previews: some View {
         SendView()
+            .environmentObject(ContentModel())
     }
 }

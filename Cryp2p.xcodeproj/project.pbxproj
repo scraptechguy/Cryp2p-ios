@@ -93,11 +93,7 @@
 			isa = PBXGroup;
 			children = (
 				902316AD27C1544900651CAF /* HomeView.swift */,
-				908B7E3727C16EE900CB3473 /* WalletView.swift */,
-				908B7E3027C160B200CB3473 /* ReceiveView.swift */,
-				908B7E3227C160C400CB3473 /* ScanView.swift */,
-				908B7E2E27C1605C00CB3473 /* SendView.swift */,
-				908B7E3927C16EF600CB3473 /* SettingsView.swift */,
+				908B7E3B27C176E400CB3473 /* Childs */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -143,6 +139,18 @@
 			children = (
 			);
 			path = SheetViews;
+			sourceTree = "<group>";
+		};
+		908B7E3B27C176E400CB3473 /* Childs */ = {
+			isa = PBXGroup;
+			children = (
+				908B7E3727C16EE900CB3473 /* WalletView.swift */,
+				908B7E3027C160B200CB3473 /* ReceiveView.swift */,
+				908B7E3227C160C400CB3473 /* ScanView.swift */,
+				908B7E2E27C1605C00CB3473 /* SendView.swift */,
+				908B7E3927C16EF600CB3473 /* SettingsView.swift */,
+			);
+			path = Childs;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

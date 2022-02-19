@@ -16,5 +16,6 @@ struct ReceiveView: View {
 struct ReceiveView_Previews: PreviewProvider {
     static var previews: some View {
         ReceiveView()
+            .environmentObject(ContentModel())
     }
 }

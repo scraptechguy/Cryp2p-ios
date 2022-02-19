@@ -16,5 +16,6 @@ struct ScanView: View {
 struct ScanView_Previews: PreviewProvider {
     static var previews: some View {
         ScanView()
+            .environmentObject(ContentModel())
     }
 }
