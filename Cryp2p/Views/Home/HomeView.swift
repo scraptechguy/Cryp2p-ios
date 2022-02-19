@@ -17,11 +17,15 @@ struct HomeView: View {
             model.bg.ignoresSafeArea()
             
             TabView(selection: $model.viewShown) {
-                ReceiveView().tag(0)
+                WalletView().tag(0)
                 
-                ScanView().tag(1)
+                ReceiveView().tag(1)
                 
-                SendView().tag(2)
+                ScanView().tag(2)
+                
+                SendView().tag(3)
+                
+                SettingsView().tag(4)
             }.tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
                 .frame(width: model.screenSize.width, height: model.screenSize.height)
                 .ignoresSafeArea()
@@ -30,15 +34,22 @@ struct HomeView: View {
                 Spacer()
                 
                 HStack {
+                    Button(action: {
+                                withAnimation {
+                                    model.viewShown = 0
+                                }
+                            }, label: {
+                                
+                            })
+                    
                     Spacer()
                     
                     Button(action: {
-                            withAnimation {
-                                model.viewShown = 0
-                            }
-                            },
-                           label: {
-                                if model.viewShown == 0 {
+                                withAnimation {
+                                    model.viewShown = 1
+                                }
+                            }, label: {
+                                if model.viewShown == 1 {
                                     Image(systemName: "arrow.down.app.fill")
                                         .resizable()
                                         .frame(width: model.screenSize.width / 15, height: model.screenSize.width / 15)
@@ -55,12 +66,11 @@ struct HomeView: View {
                     
                     Button(action: {
                                 withAnimation {
-                                    model.viewShown = 1
+                                    model.viewShown = 2
                                 }
-                            },
-                           label: {
+                            }, label: {
                                 ZStack {
-                                    if model.viewShown == 1 {
+                                    if model.viewShown == 2 {
                                         Circle()
                                             .fill()
                                             .frame(width: model.screenSize.width / 6, height: model.screenSize.width / 6)
@@ -69,7 +79,7 @@ struct HomeView: View {
                                         Circle()
                                             .fill()
                                             .frame(width: model.screenSize.width / 6, height: model.screenSize.width / 6)
-                                            .foregroundColor(Color.purple)
+                                            .foregroundColor(Color.pink)
                                     }
                                     
                                     Image(systemName: "qrcode.viewfinder")
@@ -83,11 +93,10 @@ struct HomeView: View {
                     
                     Button(action: {
                                 withAnimation {
-                                    model.viewShown = 2
+                                    model.viewShown = 3
                                 }
-                            },
-                           label: {
-                                if model.viewShown == 2 {
+                            }, label: {
+                                if model.viewShown == 3 {
                                     Image(systemName: "location.fill")
                                         .resizable()
                                         .frame(width: model.screenSize.width / 15, height: model.screenSize.width / 15)
@@ -108,25 +117,6 @@ struct HomeView: View {
                                     .fill(model.fontClr)
                     )
             }.ignoresSafeArea()
-            
-            VStack {
-                Button(action: {model.showingMenuSheet = true},
-                       label: {
-                    ZStack {
-                        Circle()
-                            .fill(model.buttonClr)
-                            .frame(width: model.screenSize.width / 7, height: model.screenSize.width / 7)
-                        
-                        Image(systemName: "gearshape")
-                            .resizable()
-                            .frame(width: model.screenSize.width / 15, height: model.screenSize.width / 15)
-                            .foregroundColor(model.fontClr)
-                    }
-                }).frame(width: model.screenSize.width / 1.1, alignment: .trailing)
-                
-                Spacer()
-            }.sheet(isPresented: $model.showingMenuSheet) {MenuSheet()}
-                .frame(height: model.screenSize.width / 0.5)
         }
     }
 }
