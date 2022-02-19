@@ -21,6 +21,7 @@ class ContentModel: ObservableObject {
     @Published var bg = Color(red: 255 / 255, green: 227 / 255, blue: 227 / 255)
     @Published var buttonClr = Color(red: 255 / 255, green: 0 / 255, blue: 140 / 255)
     @Published var fontClr = Color(red: 1, green: 1, blue: 1)
+    @Published var fontClrDark = Color(red: 0, green: 0, blue: 0)
     
     @Published var viewShown: Int = 0
     

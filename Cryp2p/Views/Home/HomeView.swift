@@ -42,16 +42,22 @@ struct HomeView: View {
                                         model.viewShown = 0
                                     }
                                 }, label: {
-                                    if model.viewShown == 0 {
-                                        Image(systemName: "dollarsign.circle.fill")
-                                            .resizable()
-                                            .frame(width: model.screenSize.width / 15, height: model.screenSize.width / 15)
+                                    VStack {
+                                        if model.viewShown == 0 {
+                                            Image(systemName: "dollarsign.circle.fill")
+                                                .resizable()
+                                                .frame(width: model.screenSize.width / 15, height: model.screenSize.width / 15)
+                                                .foregroundColor(model.buttonClr)
+                                        } else {
+                                            Image(systemName: "dollarsign.circle")
+                                                .resizable()
+                                                .frame(width: model.screenSize.width / 15, height: model.screenSize.width / 15)
+                                                .foregroundColor(model.buttonClr)
+                                        }
+                                        
+                                        Text("Wallet")
                                             .foregroundColor(model.buttonClr)
-                                    } else {
-                                        Image(systemName: "dollarsign.circle")
-                                            .resizable()
-                                            .frame(width: model.screenSize.width / 15, height: model.screenSize.width / 15)
-                                            .foregroundColor(model.buttonClr)
+                                            .font(.system(size: model.screenSize.width / 35))
                                     }
                                 })
                         
@@ -64,16 +70,22 @@ struct HomeView: View {
                                         model.viewShown = 1
                                     }
                                 }, label: {
-                                    if model.viewShown == 1 {
-                                        Image(systemName: "arrow.down.app.fill")
-                                            .resizable()
-                                            .frame(width: model.screenSize.width / 15, height: model.screenSize.width / 15)
+                                    VStack {
+                                        if model.viewShown == 1 {
+                                            Image(systemName: "arrow.down.app.fill")
+                                                .resizable()
+                                                .frame(width: model.screenSize.width / 15, height: model.screenSize.width / 15)
+                                                .foregroundColor(model.buttonClr)
+                                        } else {
+                                            Image(systemName: "arrow.down.app")
+                                                .resizable()
+                                                .frame(width: model.screenSize.width / 15, height: model.screenSize.width / 15)
+                                                .foregroundColor(model.buttonClr)
+                                        }
+                                        
+                                        Text("Receive")
                                             .foregroundColor(model.buttonClr)
-                                    } else {
-                                        Image(systemName: "arrow.down.app")
-                                            .resizable()
-                                            .frame(width: model.screenSize.width / 15, height: model.screenSize.width / 15)
-                                            .foregroundColor(model.buttonClr)
+                                            .font(.system(size: model.screenSize.width / 35))
                                     }
                         })
                         
@@ -115,17 +127,23 @@ struct HomeView: View {
                                         model.viewShown = 3
                                     }
                                 }, label: {
-                                    if model.viewShown == 3 {
-                                        Image(systemName: "location.fill")
-                                            .resizable()
-                                            .frame(width: model.screenSize.width / 15, height: model.screenSize.width / 15)
-                                            .foregroundColor(model.buttonClr)
-                                    } else {
-                                        Image(systemName: "location")
-                                            .resizable()
-                                            .frame(width: model.screenSize.width / 15, height: model.screenSize.width / 15)
-                                            .foregroundColor(model.buttonClr)
+                                    VStack {
+                                        if model.viewShown == 3 {
+                                            Image(systemName: "paperplane.fill")
+                                                .resizable()
+                                                .frame(width: model.screenSize.width / 15, height: model.screenSize.width / 15.9)
+                                                .foregroundColor(model.buttonClr)
+                                        } else {
+                                            Image(systemName: "paperplane")
+                                                .resizable()
+                                                .frame(width: model.screenSize.width / 15, height: model.screenSize.width / 15.9)
+                                                .foregroundColor(model.buttonClr)
 
+                                        }
+                                        
+                                        Text("Send")
+                                            .foregroundColor(model.buttonClr)
+                                            .font(.system(size: model.screenSize.width / 35))
                                     }
                         })
                         
@@ -138,23 +156,29 @@ struct HomeView: View {
                                         model.viewShown = 4
                                     }
                                 }, label: {
-                                    if model.viewShown == 4 {
-                                        Image(systemName: "gearshape.fill")
-                                            .resizable()
-                                            .frame(width: model.screenSize.width / 15, height: model.screenSize.width / 15)
+                                    VStack {
+                                        if model.viewShown == 4 {
+                                            Image(systemName: "gearshape.fill")
+                                                .resizable()
+                                                .frame(width: model.screenSize.width / 15, height: model.screenSize.width / 15)
+                                                .foregroundColor(model.buttonClr)
+                                        } else {
+                                            Image(systemName: "gearshape")
+                                                .resizable()
+                                                .frame(width: model.screenSize.width / 15, height: model.screenSize.width / 15)
+                                                .foregroundColor(model.buttonClr)
+                                        }
+                                        
+                                        Text("Settings")
                                             .foregroundColor(model.buttonClr)
-                                    } else {
-                                        Image(systemName: "gearshape")
-                                            .resizable()
-                                            .frame(width: model.screenSize.width / 15, height: model.screenSize.width / 15)
-                                            .foregroundColor(model.buttonClr)
+                                            .font(.system(size: model.screenSize.width / 35))
                                     }
                         })
                         
                         Spacer()
                     }
-                }.padding([.bottom], model.screenSize.width / 25)
-                    .frame(width: model.screenSize.width, height: model.screenSize.width / 5)
+                }.padding([.bottom], model.screenSize.width / 50)
+                    .frame(width: model.screenSize.width, height: model.screenSize.width / 4.5)
                     .background(Rectangle()
                                     .fill(model.fontClr)
                     )
