@@ -36,6 +36,9 @@ struct HomeView: View {
                 HStack {
                     Spacer()
                     
+                    
+                    // MARK: Wallet button
+                    
                     Group {
                         Button(action: {
                                     withAnimation {
@@ -64,6 +67,9 @@ struct HomeView: View {
                         Spacer()
                     }
                     
+                    
+                    // MARK: Receive button
+                    
                     Group {
                         Button(action: {
                                     withAnimation {
@@ -91,6 +97,9 @@ struct HomeView: View {
                         
                         Spacer()
                     }
+                    
+                    
+                    // MARK: Scan button
                     
                     Group {
                         Button(action: {
@@ -121,6 +130,9 @@ struct HomeView: View {
                         Spacer()
                     }
                     
+                    
+                    // MARK: Send button
+                    
                     Group {
                         Button(action: {
                                     withAnimation {
@@ -149,6 +161,9 @@ struct HomeView: View {
                         
                         Spacer()
                     }
+                    
+                    
+                    // MARK: Settings button
                     
                     Group {
                         Button(action: {
