@@ -8,6 +8,10 @@
 import SwiftUI
 
 struct ReceiveView: View {
+    // Access data in ContentModel.swift
+    
+    @EnvironmentObject var model: ContentModel
+    
     var body: some View {
         Text("Receive")
     }

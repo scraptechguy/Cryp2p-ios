@@ -8,6 +8,10 @@
 import SwiftUI
 
 struct SendView: View {
+    // Access data in ContentModel.swift
+    
+    @EnvironmentObject var model: ContentModel
+    
     var body: some View {
         Text("Send")
     }
