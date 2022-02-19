@@ -12,4 +12,9 @@ class ContentModel: ObservableObject {
     // MARK: Screen bounds
     
     let screenSize: CGRect = UIScreen.main.bounds
+    
+    
+    // MARK: UI Colors
+    
+    @Published var bg: Color = Color(red: 1, green: 1, blue: 1)
 }
