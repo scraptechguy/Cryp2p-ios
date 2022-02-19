@@ -17,4 +17,6 @@ class ContentModel: ObservableObject {
     // MARK: UI Colors
     
     @Published var bg: Color = Color(red: 1, green: 1, blue: 1)
+    
+    @Published var viewShown: Int = 0
 }

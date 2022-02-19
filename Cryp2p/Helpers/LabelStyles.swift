@@ -17,3 +17,10 @@ struct ButtonLabel: View {
         Text("")
     }
 }
+
+struct ButtonLabel_Previews: PreviewProvider {
+    static var previews: some View {
+        ButtonLabel()
+            .environmentObject(ContentModel())
+    }
+}

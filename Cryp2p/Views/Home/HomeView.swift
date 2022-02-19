@@ -8,10 +8,20 @@
 import SwiftUI
 
 struct HomeView: View {
+    // Access data in ContentModel.swift
+    
+    @EnvironmentObject var model: ContentModel
+    
     var body: some View {
-        Button(action: {},
-               label: {
-        })
+        ZStack {
+            model.bg.ignoresSafeArea()
+            
+            TabView(selection: $model.viewShown) {
+                SendView().tag(0)
+            }.tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
+                .frame(width: model.screenSize.width, height: model.screenSize.height)
+                .ignoresSafeArea()
+        }
     }
 }
 
