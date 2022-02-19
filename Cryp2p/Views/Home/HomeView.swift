@@ -113,17 +113,23 @@ struct HomeView: View {
                                                 .fill()
                                                 .frame(width: model.screenSize.width / 6, height: model.screenSize.width / 6)
                                                 .foregroundColor(model.buttonClr)
+                                            
+                                            Image(systemName: "qrcode.viewfinder")
+                                                .resizable()
+                                                .frame(width: model.screenSize.width / 12, height: model.screenSize.width / 12)
+                                                .foregroundColor(model.fontClr)
                                         } else {
                                             Circle()
                                                 .fill()
                                                 .frame(width: model.screenSize.width / 6, height: model.screenSize.width / 6)
-                                                .foregroundColor(Color.pink)
+                                                .foregroundColor(model.fontClr)
+                                                .overlay(Circle().stroke(model.buttonClr, lineWidth: model.screenSize.width / 150))
+                                            
+                                            Image(systemName: "qrcode.viewfinder")
+                                                .resizable()
+                                                .frame(width: model.screenSize.width / 12, height: model.screenSize.width / 12)
+                                                .foregroundColor(model.buttonClr)
                                         }
-                                        
-                                        Image(systemName: "qrcode.viewfinder")
-                                            .resizable()
-                                            .frame(width: model.screenSize.width / 12, height: model.screenSize.width / 12)
-                                            .foregroundColor(model.fontClr)
                                     }
                         }).padding([.bottom], model.screenSize.width / 15)
                         
