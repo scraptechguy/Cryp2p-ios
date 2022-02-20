@@ -38,7 +38,7 @@ struct WalletView: View {
                     VStack(alignment: .trailing) {
                         Text("6.9")
                             .foregroundColor(model.fontClr)
-                            .font(.system(size: model.screenSize.width / 12))
+                            .font(.system(size: model.screenSize.width / 13))
                             .frame(width: model.screenSize.width / 3, height: model.screenSize.width / 15, alignment: .trailing)
                         
                         Text("~ $616.9138")

@@ -35,18 +35,14 @@ struct HomeView: View {
             
             // MARK: Wallet address
             
-            ZStack {
-                VStack {
-                    Spacer()
-                    
+            VStack {
+                Spacer()
+                
+                ZStack {
                     Rectangle()
                         .fill(model.objectsClrMedium)
                         .frame(width: model.screenSize.width, height: model.screenSize.width / 2)
                         .cornerRadius(model.screenSize.width / 15)
-                }
-    
-                VStack {
-                    Spacer()
                     
                     Group {
                         Button(action: {
