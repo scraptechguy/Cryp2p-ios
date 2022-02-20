@@ -109,7 +109,7 @@ struct NavigationBar: View {
                                         Image(systemName: "qrcode.viewfinder")
                                             .resizable()
                                             .frame(width: model.screenSize.width / 15, height: model.screenSize.width / 15)
-                                            .foregroundColor(model.buttonClrProminent)
+                                            .foregroundColor(model.fontClr)
                                     } else {
                                         Circle()
                                             .fill(model.bg)
@@ -197,7 +197,7 @@ struct NavigationBar: View {
                     
                     Spacer()
                 }
-            }.padding([.bottom], model.screenSize.width / 40)
+            }.padding([.bottom], model.screenSize.width / 30)
                 .frame(width: model.screenSize.width, height: model.screenSize.width / 4.3)
                 .background(Rectangle()
                                 .fill(model.bg)
@@ -209,5 +209,6 @@ struct NavigationBar: View {
 struct NavigationBar_Previews: PreviewProvider {
     static var previews: some View {
         NavigationBar()
+            .environmentObject(ContentModel())
     }
 }

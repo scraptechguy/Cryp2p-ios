@@ -41,8 +41,31 @@ struct HomeView: View {
                 ZStack {
                     Rectangle()
                         .fill(model.objectsClrMedium)
-                        .frame(width: model.screenSize.width, height: model.screenSize.width / 2)
+                        .frame(width: model.screenSize.width, height: model.screenSize.width / 1.65)
                         .cornerRadius(model.screenSize.width / 15)
+                    
+                    ZStack {
+                        Rectangle()
+                            .fill(model.bg)
+                            .frame(width: model.screenSize.width / 1.1, height: model.screenSize.width / 5)
+                            .cornerRadius(model.screenSize.width / 15)
+                        
+                        VStack {
+                            Group {
+                                Text("FífaRosťa")
+                                    .foregroundColor(model.fontClr)
+                                    .font(.system(size: model.screenSize.width / 17))
+                                    .frame(width: model.screenSize.width / 1.9, height: model.screenSize.width / 15, alignment: .leading)
+                            }.frame(width: model.screenSize.width / 1.3, alignment: .leading)
+                            
+                            Group {
+                                Text("0x709Cd5F1A1107eD1c4e00A42B349A22701Bebb86")
+                                    .foregroundColor(model.buttonClrObscure)
+                                    .font(.system(size: model.screenSize.width / 25))
+                                    .frame(width: model.screenSize.width / 1.7, height: model.screenSize.width / 25, alignment: .leading)
+                            }.frame(width: model.screenSize.width / 1.3, alignment: .leading)
+                        }
+                    }.padding([.bottom], model.screenSize.width / 8)
                     
                     Group {
                         Button(action: {
@@ -53,8 +76,11 @@ struct HomeView: View {
                                         .frame(width: model.screenSize.width / 18, height: model.screenSize.width / 18)
                                         .foregroundColor(model.buttonClrProminent)
                         }).sheet(isPresented: $model.showingWalletManagerSheet) {WalletManagerSheet()}
-                    }.padding([.bottom], model.screenSize.width / 2.5)
+                    }.padding([.bottom], model.screenSize.width / 2.2)
                         .frame(width: model.screenSize.width / 1.1, alignment: .trailing)
+                    
+                    Heading(text: "Wallet")
+                        .padding([.bottom], model.screenSize.width / 2.2)
                 }
             }
             
@@ -74,7 +100,7 @@ struct HomeView: View {
                         .cornerRadius(model.screenSize.width / 15)
                         
                     HStack {
-                        Text("$91.32")
+                        Text("$91.35")
                             .foregroundColor(model.fontClr)
                             .font(.system(size: model.screenSize.width / 12))
                         

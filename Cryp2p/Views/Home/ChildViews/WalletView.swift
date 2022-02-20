@@ -20,31 +20,31 @@ struct WalletView: View {
             ZStack {
                 Rectangle()
                     .fill(model.objectsClrMedium)
-                    .frame(width: model.screenSize.width / 1.1, height: model.screenSize.width / 4)
+                    .frame(width: model.screenSize.width / 1.1, height: model.screenSize.width / 5)
                     .cornerRadius(model.screenSize.width / 15)
                 
                 HStack {
                     Image("SolanaIcon")
                         .resizable()
-                        .frame(width: model.screenSize.width / 8, height: model.screenSize.width / 8)
+                        .frame(width: model.screenSize.width / 10, height: model.screenSize.width / 10)
                         .padding([.trailing], model.screenSize.width / 50)
                     
                     Text("SOL")
                         .foregroundColor(model.fontClr)
-                        .font(.system(size: model.screenSize.width / 18))
+                        .font(.system(size: model.screenSize.width / 20))
                     
                     Spacer()
                     
                     VStack(alignment: .trailing) {
                         Text("6.9")
                             .foregroundColor(model.fontClr)
-                            .font(.system(size: model.screenSize.width / 13))
-                            .frame(width: model.screenSize.width / 3, height: model.screenSize.width / 15, alignment: .trailing)
+                            .font(.system(size: model.screenSize.width / 15))
+                            .frame(width: model.screenSize.width / 3, height: model.screenSize.width / 20, alignment: .trailing)
                         
                         Text("~ $616.9138")
                             .foregroundColor(model.buttonClrObscure)
                             .font(.system(size: model.screenSize.width / 25))
-                            .frame(width: model.screenSize.width / 2.5, height: model.screenSize.width / 20, alignment: .trailing)
+                            .frame(width: model.screenSize.width / 2.5, height: model.screenSize.width / 25, alignment: .trailing)
                     }
                 }.frame(width: model.screenSize.width / 1.3)
             }
