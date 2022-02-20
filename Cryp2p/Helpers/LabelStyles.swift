@@ -8,7 +8,26 @@
 import Foundation
 import SwiftUI
 
+// MARK: Heading
+
+struct Heading: View {
+    // Access data in ContentModel.swift
+    
+    @EnvironmentObject var model: ContentModel
+    
+    var text: String
+    
+    var body: some View {
+        Text(text)
+            .foregroundColor(model.buttonClrObscure)
+            .font(.system(size: model.screenSize.width / 15))
+            .frame(width: model.screenSize.width / 1.2, alignment: .leading)
+    }
+}
+
+
 // MARK: Button label
+
 struct ButtonLabel: View {
     // Access data in ContentModel.swift
     
