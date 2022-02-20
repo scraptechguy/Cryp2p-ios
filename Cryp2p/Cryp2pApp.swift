@@ -11,7 +11,7 @@ import SwiftUI
 struct Cryp2pApp: App {
     var body: some Scene {
         WindowGroup {
-            LaunchView()
+            HomeView()
                 .environmentObject(ContentModel())
         }
     }

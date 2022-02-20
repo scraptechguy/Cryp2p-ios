@@ -214,8 +214,8 @@ struct HomeView: View {
                         
                         Spacer()
                     }
-                }.padding([.bottom], model.screenSize.width / 50)
-                    .frame(width: model.screenSize.width, height: model.screenSize.width / 4.5)
+                }.padding([.bottom], model.screenSize.width / 40)
+                    .frame(width: model.screenSize.width, height: model.screenSize.width / 4.3)
                     .background(Rectangle()
                                     .fill(model.objectsClrMedium)
                     )
