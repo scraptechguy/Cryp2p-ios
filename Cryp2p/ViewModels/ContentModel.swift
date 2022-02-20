@@ -28,4 +28,5 @@ class ContentModel: ObservableObject {
     // MARK: State variables
     
     @Published var viewShown: Int = 0
+    @Published var showingWalletManagerSheet: Bool = false
 }

@@ -22,6 +22,7 @@
 		908B7E3827C16EE900CB3473 /* WalletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B7E3727C16EE900CB3473 /* WalletView.swift */; };
 		908B7E3A27C16EF600CB3473 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B7E3927C16EF600CB3473 /* SettingsView.swift */; };
 		908B7E3E27C296FA00CB3473 /* NavigationBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B7E3D27C296FA00CB3473 /* NavigationBar.swift */; };
+		908B7E4027C29C8000CB3473 /* WalletManagerSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B7E3F27C29C8000CB3473 /* WalletManagerSheet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		908B7E3927C16EF600CB3473 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		908B7E3C27C2565000CB3473 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
 		908B7E3D27C296FA00CB3473 /* NavigationBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationBar.swift; sourceTree = "<group>"; };
+		908B7E3F27C29C8000CB3473 /* WalletManagerSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletManagerSheet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +81,7 @@
 				908B7E2B27C15E7100CB3473 /* Helpers */,
 				902316AC27C1543B00651CAF /* Views */,
 				908B7E3427C16D4800CB3473 /* SheetViews */,
+				902316B227C1547300651CAF /* ViewModels */,
 				9023169F27C1513400651CAF /* Assets.xcassets */,
 				902316A127C1513400651CAF /* Preview Content */,
 			);
@@ -110,7 +113,6 @@
 				902316A927C1542D00651CAF /* LaunchView.swift */,
 				902316AF27C1545000651CAF /* Onboarding */,
 				902316AB27C1543400651CAF /* Home */,
-				902316B227C1547300651CAF /* ViewModels */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -142,6 +144,7 @@
 		908B7E3427C16D4800CB3473 /* SheetViews */ = {
 			isa = PBXGroup;
 			children = (
+				908B7E3F27C29C8000CB3473 /* WalletManagerSheet.swift */,
 			);
 			path = SheetViews;
 			sourceTree = "<group>";
@@ -233,6 +236,7 @@
 				902316B127C1546500651CAF /* OnboardingView.swift in Sources */,
 				908B7E3827C16EE900CB3473 /* WalletView.swift in Sources */,
 				908B7E3127C160B200CB3473 /* ReceiveView.swift in Sources */,
+				908B7E4027C29C8000CB3473 /* WalletManagerSheet.swift in Sources */,
 				902316B427C154A700651CAF /* ContentModel.swift in Sources */,
 				9023169C27C1513300651CAF /* Cryp2pApp.swift in Sources */,
 				908B7E3327C160C400CB3473 /* ScanView.swift in Sources */,
