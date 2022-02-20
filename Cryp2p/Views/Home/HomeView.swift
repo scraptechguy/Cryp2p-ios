@@ -30,13 +30,31 @@ struct HomeView: View {
                 .frame(width: model.screenSize.width, height: model.screenSize.height)
                 .ignoresSafeArea()
             
-            VStack {
-                Spacer()
-                
-                Rectangle()
-                    .fill(model.objectsClrMedium)
-                    .frame(width: model.screenSize.width, height: model.screenSize.width / 2)
-                    .cornerRadius(model.screenSize.width / 15)
+            ZStack {
+                VStack {
+                    Spacer()
+                    
+                    Rectangle()
+                        .fill(model.objectsClrMedium)
+                        .frame(width: model.screenSize.width, height: model.screenSize.width / 2)
+                        .cornerRadius(model.screenSize.width / 15)
+                }
+    
+                VStack {
+                    Spacer()
+                    
+                    Group {
+                        Button(action: {
+                                    model.showingWalletManagerSheet = true
+                                }, label: {
+                                    Image(systemName: "plus.app")
+                                        .resizable()
+                                        .frame(width: model.screenSize.width / 18, height: model.screenSize.width / 18)
+                                        .foregroundColor(model.buttonClrProminent)
+                        }).sheet(isPresented: $model.showingWalletManagerSheet) {WalletManagerSheet()}
+                    }.padding([.bottom], model.screenSize.width / 2.5)
+                        .frame(width: model.screenSize.width / 1.1, alignment: .trailing)
+                }
             }
             
             NavigationBar()
