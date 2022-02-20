@@ -16,6 +16,9 @@ struct HomeView: View {
         ZStack {
             model.bg.ignoresSafeArea()
             
+            
+            // MARK: TabView
+            
             TabView(selection: $model.viewShown) {
                 WalletView().tag(0)
                 
@@ -29,6 +32,8 @@ struct HomeView: View {
             }.tabViewStyle(PageTabViewStyle(indexDisplayMode: .never))
                 .frame(width: model.screenSize.width, height: model.screenSize.height)
                 .ignoresSafeArea()
+            
+            // MARK: Wallet address
             
             ZStack {
                 VStack {
@@ -57,7 +62,13 @@ struct HomeView: View {
                 }
             }
             
+            
+            // MARK: Navigation bar
+            
             NavigationBar()
+            
+            
+            // MARK: Top
             
             VStack {
                 ZStack {
