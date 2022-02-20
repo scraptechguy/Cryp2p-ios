@@ -47,20 +47,24 @@ struct HomeView: View {
                                 }, label: {
                                     VStack {
                                         if model.viewShown == 0 {
-                                            Image(systemName: "dollarsign.circle.fill")
+                                            Image(systemName: "dollarsign.circle")
                                                 .resizable()
-                                                .frame(width: model.screenSize.width / 15, height: model.screenSize.width / 15)
-                                                .foregroundColor(model.buttonClr)
+                                                .frame(width: model.screenSize.width / 18, height: model.screenSize.width / 18)
+                                                .foregroundColor(model.buttonClrProminent)
+                                            
+                                            Text("Wallet")
+                                                .foregroundColor(model.fontClr)
+                                                .font(.system(size: model.screenSize.width / 35))
                                         } else {
                                             Image(systemName: "dollarsign.circle")
                                                 .resizable()
                                                 .frame(width: model.screenSize.width / 15, height: model.screenSize.width / 15)
-                                                .foregroundColor(model.buttonClr)
+                                                .foregroundColor(model.buttonClrObscure)
+                                            
+                                            Text("Wallet")
+                                                .foregroundColor(model.buttonClrObscure)
+                                                .font(.system(size: model.screenSize.width / 35))
                                         }
-                                        
-                                        Text("Wallet")
-                                            .foregroundColor(model.buttonClr)
-                                            .font(.system(size: model.screenSize.width / 35))
                                     }
                                 })
                         
@@ -78,20 +82,24 @@ struct HomeView: View {
                                 }, label: {
                                     VStack {
                                         if model.viewShown == 1 {
-                                            Image(systemName: "arrow.down.app.fill")
+                                            Image(systemName: "arrow.down.app")
                                                 .resizable()
-                                                .frame(width: model.screenSize.width / 15, height: model.screenSize.width / 15)
-                                                .foregroundColor(model.buttonClr)
+                                                .frame(width: model.screenSize.width / 18, height: model.screenSize.width / 18)
+                                                .foregroundColor(model.buttonClrProminent)
+                                            
+                                            Text("Receive")
+                                                .foregroundColor(model.fontClr)
+                                                .font(.system(size: model.screenSize.width / 35))
                                         } else {
                                             Image(systemName: "arrow.down.app")
                                                 .resizable()
-                                                .frame(width: model.screenSize.width / 15, height: model.screenSize.width / 15)
-                                                .foregroundColor(model.buttonClr)
+                                                .frame(width: model.screenSize.width / 18, height: model.screenSize.width / 18)
+                                                .foregroundColor(model.buttonClrObscure)
+                                            
+                                            Text("Receive")
+                                                .foregroundColor(model.buttonClrObscure)
+                                                .font(.system(size: model.screenSize.width / 35))
                                         }
-                                        
-                                        Text("Receive")
-                                            .foregroundColor(model.buttonClr)
-                                            .font(.system(size: model.screenSize.width / 35))
                                     }
                         })
                         
@@ -110,25 +118,26 @@ struct HomeView: View {
                                     ZStack {
                                         if model.viewShown == 2 {
                                             Circle()
-                                                .fill()
-                                                .frame(width: model.screenSize.width / 6, height: model.screenSize.width / 6)
-                                                .foregroundColor(model.buttonClr)
+                                                .fill(model.objectsClrMedium)
+                                                .frame(width: model.screenSize.width / 8, height: model.screenSize.width / 8)
+                                                .foregroundColor(model.buttonClrProminent)
+                                                .overlay(Circle().stroke(model.buttonClrProminent, lineWidth: model.screenSize.width / 150))
                                             
                                             Image(systemName: "qrcode.viewfinder")
                                                 .resizable()
-                                                .frame(width: model.screenSize.width / 12, height: model.screenSize.width / 12)
-                                                .foregroundColor(model.fontClr)
+                                                .frame(width: model.screenSize.width / 15, height: model.screenSize.width / 15)
+                                                .foregroundColor(model.buttonClrProminent)
                                         } else {
                                             Circle()
-                                                .fill()
-                                                .frame(width: model.screenSize.width / 6, height: model.screenSize.width / 6)
-                                                .foregroundColor(model.fontClr)
-                                                .overlay(Circle().stroke(model.buttonClr, lineWidth: model.screenSize.width / 150))
+                                                .fill(model.objectsClrMedium)
+                                                .frame(width: model.screenSize.width / 8, height: model.screenSize.width / 8)
+                                                .foregroundColor(model.buttonClrObscure)
+                                                .overlay(Circle().stroke(model.buttonClrObscure, lineWidth: model.screenSize.width / 150))
                                             
                                             Image(systemName: "qrcode.viewfinder")
                                                 .resizable()
-                                                .frame(width: model.screenSize.width / 12, height: model.screenSize.width / 12)
-                                                .foregroundColor(model.buttonClr)
+                                                .frame(width: model.screenSize.width / 15, height: model.screenSize.width / 15)
+                                                .foregroundColor(model.buttonClrObscure)
                                         }
                                     }
                         }).padding([.bottom], model.screenSize.width / 15)
@@ -147,21 +156,24 @@ struct HomeView: View {
                                 }, label: {
                                     VStack {
                                         if model.viewShown == 3 {
-                                            Image(systemName: "paperplane.fill")
+                                            Image(systemName: "paperplane")
                                                 .resizable()
-                                                .frame(width: model.screenSize.width / 15, height: model.screenSize.width / 15.9)
-                                                .foregroundColor(model.buttonClr)
+                                                .frame(width: model.screenSize.width / 18, height: model.screenSize.width / 19)
+                                                .foregroundColor(model.buttonClrProminent)
+                                            
+                                            Text("Send")
+                                                .foregroundColor(model.fontClr)
+                                                .font(.system(size: model.screenSize.width / 35))
                                         } else {
                                             Image(systemName: "paperplane")
                                                 .resizable()
-                                                .frame(width: model.screenSize.width / 15, height: model.screenSize.width / 15.9)
-                                                .foregroundColor(model.buttonClr)
-
+                                                .frame(width: model.screenSize.width / 18, height: model.screenSize.width / 19)
+                                                .foregroundColor(model.buttonClrObscure)
+                                            
+                                            Text("Send")
+                                                .foregroundColor(model.buttonClrObscure)
+                                                .font(.system(size: model.screenSize.width / 35))
                                         }
-                                        
-                                        Text("Send")
-                                            .foregroundColor(model.buttonClr)
-                                            .font(.system(size: model.screenSize.width / 35))
                                     }
                         })
                         
@@ -179,20 +191,24 @@ struct HomeView: View {
                                 }, label: {
                                     VStack {
                                         if model.viewShown == 4 {
-                                            Image(systemName: "gearshape.fill")
+                                            Image(systemName: "gearshape")
                                                 .resizable()
-                                                .frame(width: model.screenSize.width / 15, height: model.screenSize.width / 15)
-                                                .foregroundColor(model.buttonClr)
+                                                .frame(width: model.screenSize.width / 18, height: model.screenSize.width / 18)
+                                                .foregroundColor(model.buttonClrProminent)
+                                            
+                                            Text("Settings")
+                                                .foregroundColor(model.fontClr)
+                                                .font(.system(size: model.screenSize.width / 35))
                                         } else {
                                             Image(systemName: "gearshape")
                                                 .resizable()
-                                                .frame(width: model.screenSize.width / 15, height: model.screenSize.width / 15)
-                                                .foregroundColor(model.buttonClr)
+                                                .frame(width: model.screenSize.width / 18, height: model.screenSize.width / 18)
+                                                .foregroundColor(model.buttonClrObscure)
+                                            
+                                            Text("Settings")
+                                                .foregroundColor(model.buttonClrObscure)
+                                                .font(.system(size: model.screenSize.width / 35))
                                         }
-                                        
-                                        Text("Settings")
-                                            .foregroundColor(model.buttonClr)
-                                            .font(.system(size: model.screenSize.width / 35))
                                     }
                         })
                         
@@ -201,7 +217,7 @@ struct HomeView: View {
                 }.padding([.bottom], model.screenSize.width / 50)
                     .frame(width: model.screenSize.width, height: model.screenSize.width / 4.5)
                     .background(Rectangle()
-                                    .fill(model.fontClr)
+                                    .fill(model.objectsClrMedium)
                     )
             }.ignoresSafeArea()
         }

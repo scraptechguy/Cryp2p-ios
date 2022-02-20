@@ -26,7 +26,7 @@ struct SettingsView: View {
                          label: {
                             ZStack {
                                 Rectangle()
-                                    .fill(model.buttonClr)
+                                    .fill(model.objectsClrMedium)
                                     .frame(width: model.screenSize.width / 1.1, height: model.screenSize.width / 8)
                                     .cornerRadius(model.screenSize.width / 28)
                             
@@ -37,7 +37,7 @@ struct SettingsView: View {
                                 
                                 Image(systemName: "square.and.arrow.up")
                                     .resizable()
-                                    .foregroundColor(model.fontClr)
+                                    .foregroundColor(model.buttonClrProminent)
                                     .frame(width: model.screenSize.width / 20, height: model.screenSize.width / 16)
                                     .padding(.leading, model.screenSize.width / 1.5)
                             }

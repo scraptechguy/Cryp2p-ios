@@ -19,7 +19,7 @@ struct ButtonLabel: View {
     var body: some View {
         ZStack {
             Rectangle()
-                .fill(model.buttonClr)
+                .fill(model.objectsClrMedium)
                 .frame(width: model.screenSize.width / 1.1, height: model.screenSize.width / 8)
                 .cornerRadius(model.screenSize.width / 28)
         
@@ -30,7 +30,7 @@ struct ButtonLabel: View {
             
             Image(systemName: "chevron.right")
                 .resizable()
-                .foregroundColor(model.fontClr)
+                .foregroundColor(model.buttonClrProminent)
                 .frame(width: model.screenSize.width / 30, height: model.screenSize.width / 20)
                 .padding(.leading, model.screenSize.width / 1.5)
         }
