@@ -98,7 +98,7 @@
 			children = (
 				902316AD27C1544900651CAF /* HomeView.swift */,
 				908B7E3D27C296FA00CB3473 /* NavigationBar.swift */,
-				908B7E3B27C176E400CB3473 /* Childs */,
+				908B7E3B27C176E400CB3473 /* ChildViews */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -146,7 +146,7 @@
 			path = SheetViews;
 			sourceTree = "<group>";
 		};
-		908B7E3B27C176E400CB3473 /* Childs */ = {
+		908B7E3B27C176E400CB3473 /* ChildViews */ = {
 			isa = PBXGroup;
 			children = (
 				908B7E3727C16EE900CB3473 /* WalletView.swift */,
@@ -155,7 +155,7 @@
 				908B7E2E27C1605C00CB3473 /* SendView.swift */,
 				908B7E3927C16EF600CB3473 /* SettingsView.swift */,
 			);
-			path = Childs;
+			path = ChildViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

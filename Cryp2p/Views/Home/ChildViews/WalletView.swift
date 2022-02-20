@@ -13,7 +13,15 @@ struct WalletView: View {
     @EnvironmentObject var model: ContentModel
     
     var body: some View {
-        Text("Wallet")
+        ScrollView(showsIndicators: false) {
+            Heading(text: "Assets")
+                .padding([.top], model.screenSize.width / 4.3)
+            
+            Rectangle()
+                .fill(model.objectsClrMedium)
+                .frame(width: model.screenSize.width / 1.1, height: model.screenSize.width / 4)
+                .cornerRadius(model.screenSize.width / 15)
+        }
     }
 }
 
