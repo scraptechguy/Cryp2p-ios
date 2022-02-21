@@ -12,6 +12,8 @@ struct WalletManager: View {
     
     @EnvironmentObject var model: ContentModel
     
+    
+    
     var body: some View {
         VStack {
             Spacer()
@@ -28,20 +30,30 @@ struct WalletManager: View {
                         .frame(width: model.screenSize.width / 1.1, height: model.screenSize.width / 5)
                         .cornerRadius(model.screenSize.width / 15)
                     
-                    VStack {
-                        Group {
-                            Text("FífaRosťa")
-                                .foregroundColor(model.fontClr)
-                                .font(.system(size: model.screenSize.width / 17))
-                                .frame(width: model.screenSize.width / 1.9, height: model.screenSize.width / 15, alignment: .leading)
-                        }.frame(width: model.screenSize.width / 1.3, alignment: .leading)
+                    HStack {
+                        Button(action: {
+                            
+                        }, label: {
+                            ZStack {
+                                Text("")
+                            }
+                        })
                         
-                        Group {
-                            Text("0x709Cd5F1A1107eD1c4e00A42B349A22701Bebb86")
-                                .foregroundColor(model.buttonClrObscure)
-                                .font(.system(size: model.screenSize.width / 25))
-                                .frame(width: model.screenSize.width / 1.7, height: model.screenSize.width / 25, alignment: .leading)
-                        }.frame(width: model.screenSize.width / 1.3, alignment: .leading)
+                        VStack {
+                            Group {
+                                Text("FífaRosťa")
+                                    .foregroundColor(model.fontClr)
+                                    .font(.system(size: model.screenSize.width / 17))
+                                    .frame(width: model.screenSize.width / 1.9, height: model.screenSize.width / 15, alignment: .leading)
+                            }.frame(width: model.screenSize.width / 1.3, alignment: .leading)
+                            
+                            Group {
+                                Text("0x709Cd5F1A1107eD1c4e00A42B349A22701Bebb86")
+                                    .foregroundColor(model.buttonClrObscure)
+                                    .font(.system(size: model.screenSize.width / 25))
+                                    .frame(width: model.screenSize.width / 1.7, height: model.screenSize.width / 25, alignment: .leading)
+                            }.frame(width: model.screenSize.width / 1.3, alignment: .leading)
+                        }
                     }
                 }.padding([.bottom], model.screenSize.width / 8)
                 

@@ -43,7 +43,7 @@ struct HomeView: View {
             NavigationBar()
             
             
-            // MARK: Top
+            // MARK: Price tracker
             
             PriceTracker()
         }
