@@ -30,18 +30,18 @@ struct NavigationBar: View {
                             }, label: {
                                 VStack {
                                     if model.viewShown == 0 {
-                                        Image(systemName: "dollarsign.circle")
+                                        Image(systemName: "externaldrive")
                                             .resizable()
-                                            .frame(width: model.screenSize.width / 18, height: model.screenSize.width / 18)
+                                            .frame(width: model.screenSize.width / 15, height: model.screenSize.width / 18)
                                             .foregroundColor(model.buttonClrProminent)
                                         
                                         Text("Wallet")
                                             .foregroundColor(model.fontClr)
                                             .font(.system(size: model.screenSize.width / 35))
                                     } else {
-                                        Image(systemName: "dollarsign.circle")
+                                        Image(systemName: "externaldrive")
                                             .resizable()
-                                            .frame(width: model.screenSize.width / 18, height: model.screenSize.width / 18)
+                                            .frame(width: model.screenSize.width / 15, height: model.screenSize.width / 18)
                                             .foregroundColor(model.buttonClrObscure)
                                         
                                         Text("Wallet")
