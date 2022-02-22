@@ -16,7 +16,7 @@ struct ScanView: View {
     var body: some View {
         ZStack {
             VStack {
-                CodeScannerView(codeTypes: [.qr], scanMode: .continuous, scanInterval: 0.25, simulatedData: "Fifa", completion: handleScan)
+                CodeScannerView(codeTypes: [.qr], scanMode: .continuous, scanInterval: 0.25, simulatedData: "Fifa", shouldVibrateOnSuccess: true, completion: handleScan)
                     .sheet(isPresented: $model.showingWalletManagerSheet) {WalletManagerSheet()}
                 
                 
