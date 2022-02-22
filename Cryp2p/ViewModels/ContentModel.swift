@@ -29,4 +29,7 @@ class ContentModel: ObservableObject {
     
     @Published var viewShown: Int = 0
     @Published var showingWalletManagerSheet: Bool = false
+    @Published var isShowingScanner: Bool = false
+    
+    @Published var phrase: String = ""
 }
