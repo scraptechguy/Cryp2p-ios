@@ -16,33 +16,15 @@ struct ScanView: View {
     var body: some View {
         ZStack {
             VStack {
-                CodeScannerView(codeTypes: [.qr], simulatedData: "Fifa", completion: handleScan)
+                CodeScannerView(codeTypes: [.qr], simulatedData: "Fifa", completion: handleScan).onAppear(perform: {model.isShowingScanner = true})
             }
             
             Text(model.phrase)
                 .foregroundColor(.white)
-            
-            Button(action: {
-                        model.isShowingScanner = true
-                    }, label: {
-                        ZStack {
-                            Rectangle()
-                                .fill(model.objectsClrMedium)
-                                .frame(width: model.screenSize.width / 2, height: model.screenSize.width / 8)
-                                .cornerRadius(model.screenSize.width / 28)
-                        
-                            Text("Start scanning")
-                                .foregroundColor(model.fontClr)
-                                .font(.system(size: model.screenSize.width / 17))
-                                .frame(width: model.screenSize.width / 1.6, height: model.screenSize.width / 8, alignment: .center)
-                        }
-            }).padding([.top], model.screenSize.width / 1.2)
         }
     }
     
     func handleScan(result: Result<ScanResult, ScanError>) {
-        model.isShowingScanner = false
-        
         switch result {
             case .success(let result):
                 model.phrase = result.string
