@@ -14,14 +14,8 @@ struct ScanView: View {
     @EnvironmentObject var model: ContentModel
     
     var body: some View {
-        ZStack {
-            VStack {
-                CodeScannerView(codeTypes: [.qr], scanMode: .continuous, scanInterval: 0.25, simulatedData: "Fifa", shouldVibrateOnSuccess: true, completion: handleScan)
-                    .sheet(isPresented: $model.showingWalletManagerSheet) {WalletManagerSheet()}
-                
-                
-            }
-        }
+        CodeScannerView(codeTypes: [.qr], scanMode: .continuous, scanInterval: 0.25, simulatedData: "Fifa", shouldVibrateOnSuccess: true, completion: handleScan)
+            .sheet(isPresented: $model.showingWalletManagerSheet) {WalletManagerSheet()}
     }
     
     func handleScan(result: Result<ScanResult, ScanError>) {
