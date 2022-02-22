@@ -16,11 +16,12 @@ struct ScanView: View {
     var body: some View {
         ZStack {
             VStack {
-                CodeScannerView(codeTypes: [.qr], simulatedData: "Fifa", completion: handleScan).onAppear(perform: {model.isShowingScanner = true})
+                CodeScannerView(codeTypes: [.qr], scanMode: .continuous, simulatedData: "Fifa", completion: handleScan)
+                    .onAppear(perform: {model.isShowingScanner = true})
+                    .sheet(isPresented: $model.showingWalletManagerSheet) {WalletManagerSheet()}
+                
+                
             }
-            
-            Text(model.phrase)
-                .foregroundColor(.white)
         }
     }
     
@@ -32,6 +33,8 @@ struct ScanView: View {
             case .failure(let error):
                 print("Scanning failed: \(error.localizedDescription)")
         }
+        
+        model.showingWalletManagerSheet = true
     }
 }
 

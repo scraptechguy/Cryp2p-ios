@@ -25,6 +25,7 @@ struct HomeView: View {
                 ReceiveView().tag(1)
                 
                 ScanView().tag(2)
+                    .onAppear(perform: {model.isShowingScanner = true})
                 
                 SendView().tag(3)
                 
