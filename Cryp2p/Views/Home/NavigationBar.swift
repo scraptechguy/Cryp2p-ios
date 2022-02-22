@@ -32,7 +32,7 @@ struct NavigationBar: View {
                                     if model.viewShown == 0 {
                                         Image(systemName: "externaldrive")
                                             .resizable()
-                                            .frame(width: model.screenSize.width / 15, height: model.screenSize.width / 18)
+                                            .frame(width: model.screenSize.width / 14, height: model.screenSize.width / 18)
                                             .foregroundColor(model.buttonClrProminent)
                                         
                                         Text("Wallet")

@@ -16,11 +16,8 @@ struct SettingsView: View {
         ZStack {
             ScrollView(showsIndicators: false) {
                 VStack {
-                    Button(action: {
-                        
-                    }, label: {
-                        ButtonLabel(text: "Help")
-                    })
+                    Heading(text: "Information")
+                        .padding([.top], model.screenSize.width / 4.3)
                     
                     Link(destination: URL(string: "https://youtu.be/dQw4w9WgXcQ")!,
                          label: {
@@ -41,6 +38,14 @@ struct SettingsView: View {
                                     .frame(width: model.screenSize.width / 20, height: model.screenSize.width / 16)
                                     .padding(.leading, model.screenSize.width / 1.5)
                             }
+                    })
+                    
+                    Heading(text: "Help")
+                    
+                    Button(action: {
+                        
+                    }, label: {
+                        ButtonLabel(text: "Help")
                     })
                 }
             }

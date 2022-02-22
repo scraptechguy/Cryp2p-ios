@@ -12,6 +12,8 @@ struct PriceTracker: View {
     
     @EnvironmentObject var model: ContentModel
     
+    var price: Float = round(Float.random(in: 90...92) * 100) / 100.0
+    
     var body: some View {
         VStack {
             ZStack {
@@ -21,7 +23,7 @@ struct PriceTracker: View {
                     .cornerRadius(model.screenSize.width / 15)
                     
                 HStack {
-                    Text("$91.35")
+                    Text("$\(price)")
                         .foregroundColor(model.fontClr)
                         .font(.system(size: model.screenSize.width / 12))
                     
