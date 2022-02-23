@@ -13,7 +13,7 @@ struct SendView: View {
     @EnvironmentObject var model: ContentModel
     
     var body: some View {
-        Text("Send")
+        Text(model.phrase)
     }
 }
 

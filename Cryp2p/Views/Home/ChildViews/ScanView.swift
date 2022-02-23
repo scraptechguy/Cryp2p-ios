@@ -15,7 +15,6 @@ struct ScanView: View {
     
     var body: some View {
         CodeScannerView(codeTypes: [.qr], scanMode: .continuous, scanInterval: 0.25, simulatedData: "Fifa", shouldVibrateOnSuccess: true, completion: handleScan)
-            .sheet(isPresented: $model.showingWalletManagerSheet) {WalletManagerSheet()}
     }
     
     func handleScan(result: Result<ScanResult, ScanError>) {
@@ -27,7 +26,9 @@ struct ScanView: View {
                 print("Scanning failed: \(error.localizedDescription)")
         }
         
-        model.showingWalletManagerSheet = true
+        withAnimation {
+            model.viewShown = 3
+        }
     }
 }
 
