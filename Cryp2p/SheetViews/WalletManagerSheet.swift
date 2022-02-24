@@ -20,5 +20,6 @@ struct WalletManagerSheet: View {
 struct WalletManagerSheet_Previews: PreviewProvider {
     static var previews: some View {
         WalletManagerSheet()
+            .environmentObject(ContentModel())
     }
 }
