@@ -7,7 +7,7 @@ Cryp2p is a Solana-based iOS native app that's focused on improving user experie
 
 ## Cryp2p status
 
-Cryp2p is currently in active development. 
+Cryp2p is currently in active development. This app is being developed as a part of [Solana Riptide hackathon](https://solana.com/riptide).
 
 ### Latest release on the App Store: 
 
