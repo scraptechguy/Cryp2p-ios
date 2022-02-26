@@ -35,6 +35,6 @@ Because we find painful:
 
 ## Full documentation 
 
-See the <a href="https://github.com/filiptronicek/StuduWidgets/wiki">StuduWidgets Wiki</a> for full documentation, code structure, and other information. 
+See the <a href="https://github.com/scraptechguy/Cryp2p-ios/wiki">Cryp2p Wiki</a> for full documentation, code structure, and other information. 
 
 Built with love by [@filiptronicek](https://github.com/filiptronicek) & [@scraptechguy](https://github.com/scraptechguy)
