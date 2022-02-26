@@ -7,7 +7,7 @@ Cryp2p is a Solana-based iOS native app that's focused on improving user experie
 
 ## Cryp2p status
 
-Cryp2p is currently in active development. This app is being developed as a part of [Solana Riptide hackathon](https://solana.com/riptide).
+Cryp2p is currently in active development. This app is being developed as a part of [Solana Riptide](https://solana.com/riptide) hackathon.
 
 ### Latest release on the App Store: 
 
@@ -25,8 +25,16 @@ Click <a href="https://youtu.be/dQw4w9WgXcQ">here</a> or use the Redeem Code: <b
 + We're using [CodeScanner](https://github.com/twostraws/CodeScanner) Xcode package to scan QR codes
 
 
+## Why?
+
+Because we find painful: 
+
++ Manipulation with wallet addresses
++ Sending wallet addresses electronically when you're standing next to the recepient
+
+
 ## Full documentation 
 
-See the <a href="https://github.com/filiptronicek/StuduWidgets/wiki">StuduWidgets Wiki</a> for full documentation, code structure, and other information. 
+See the <a href="https://github.com/scraptechguy/Cryp2p-ios/wiki">Cryp2p Wiki</a> for full documentation, code structure, and other information. 
 
 Built with love by [@filiptronicek](https://github.com/filiptronicek) & [@scraptechguy](https://github.com/scraptechguy)
