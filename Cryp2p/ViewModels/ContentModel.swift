@@ -31,4 +31,6 @@ class ContentModel: ObservableObject {
     @Published var showingWalletManagerSheet: Bool = false
     
     @Published var phrase: String = ""
+    @Published var addresses: [String] = ["0x709Cd5F1A1107eD1c4e00A42B349A22701Bebb86", "57xndEKxm8hjinu81YAzakxWiC2u7AxS7rZyC2y2KfDC"]
+    @Published var nicknames: [String] = ["FífaRosťa", "RosťaFífa"]
 }
