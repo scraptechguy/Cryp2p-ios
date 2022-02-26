@@ -18,7 +18,8 @@ struct WalletManagerSheet: View {
             
             ScrollView(showsIndicators: false) {
                 VStack {
-                    Heading(text: "Wallets")
+                    Heading(text: "Connected wallets")
+                        .padding([.top], model.screenSize.width / 8)
                     
                     ForEach(model.addresses.indices, id: \.self) { i in
                         ZStack {

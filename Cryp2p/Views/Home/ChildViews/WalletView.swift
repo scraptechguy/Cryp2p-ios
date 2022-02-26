@@ -46,7 +46,7 @@ struct WalletView: View {
                             .font(.system(size: model.screenSize.width / 25))
                             .frame(width: model.screenSize.width / 2.5, height: model.screenSize.width / 25, alignment: .trailing)
                     }
-                }.frame(width: model.screenSize.width / 1.3)
+                }.frame(width: model.screenSize.width / 1.4)
             }
         }
     }

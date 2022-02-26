@@ -63,7 +63,7 @@ struct SendView: View {
                                 .foregroundColor(model.fontClr)
                                 .font(.system(size: model.screenSize.width / 18))
                         }
-                }).padding([.top], model.screenSize.width / 3)
+                }).padding([.top], model.screenSize.width / 3.5)
             }
         }
     }
