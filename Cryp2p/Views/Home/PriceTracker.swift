@@ -12,7 +12,7 @@ struct PriceTracker: View {
     
     @EnvironmentObject var model: ContentModel
     
-    var price: Float = round(Float.random(in: 90...92) * 100) / 100.0
+    var price: String = "89.45"
     
     var body: some View {
         VStack {
