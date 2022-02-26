@@ -26,6 +26,30 @@ struct Heading: View {
 }
 
 
+// MARK: Title
+
+struct Title: View {
+    // Access data in ContentModel.swift
+    
+    @EnvironmentObject var model: ContentModel
+    
+    var text: String
+    
+    var body: some View {
+        Text(text)
+            .foregroundColor(model.fontClr)
+            .font(.system(size: model.screenSize.width / 12))
+            .frame(width: model.screenSize.width / 1.1, height: model.screenSize.width / 5, alignment: .leading)
+            .padding([.leading], model.screenSize.width / 30)
+            .padding([.bottom], model.screenSize.width / 18)
+            .background(
+                Rectangle()
+                    .fill(LinearGradient(gradient: Gradient(stops: [.init(color: model.bg, location: 0), .init(color: model.bg.opacity(0.01), location: 1)]), startPoint: .top, endPoint: .bottom))
+            )
+    }
+}
+
+
 // MARK: Button label
 
 struct ButtonLabel: View {
