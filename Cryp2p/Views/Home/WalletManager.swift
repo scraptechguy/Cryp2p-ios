@@ -24,108 +24,98 @@ struct WalletManager: View {
                     .frame(width: model.screenSize.width, height: model.screenSize.width / 1.65)
                     .cornerRadius(model.screenSize.width / 15)
                 
+                Rectangle()
+                    .fill(model.bg)
+                    .frame(width: model.screenSize.width / 1.1, height: model.screenSize.width / 5)
+                    .cornerRadius(model.screenSize.width / 15)
+                    .padding([.bottom], model.screenSize.width / 8)
                 
                 // MARK: Scan view not shown
                 
                 if model.addresses != [] {
-                    if model.viewShown == 2 {
-                        ZStack {
-                            Rectangle()
-                                .fill(model.bg)
-                                .frame(width: model.screenSize.width / 1.1, height: model.screenSize.width / 5)
-                                .cornerRadius(model.screenSize.width / 15)
+                    if model.viewShown != 2 {
+                        VStack {
+                            Group {
+                                Text("FífaRosťa")
+                                    .foregroundColor(model.fontClr)
+                                    .font(.system(size: model.screenSize.width / 17))
+                                    .frame(width: model.screenSize.width / 1.9, height: model.screenSize.width / 15, alignment: .leading)
+                            }.frame(width: model.screenSize.width / 1.3, alignment: .leading)
                             
-                            VStack {
-                                Group {
-                                    Text("FífaRosťa")
-                                        .foregroundColor(model.fontClr)
-                                        .font(.system(size: model.screenSize.width / 17))
-                                        .frame(width: model.screenSize.width / 1.9, height: model.screenSize.width / 15, alignment: .leading)
-                                }.frame(width: model.screenSize.width / 1.3, alignment: .leading)
-                                
-                                Group {
-                                    Text("0x709Cd5F1A1107eD1c4e00A42B349A22701Bebb86")
-                                        .foregroundColor(model.buttonClrObscure)
-                                        .font(.system(size: model.screenSize.width / 25))
-                                        .frame(width: model.screenSize.width / 1.7, height: model.screenSize.width / 25, alignment: .leading)
-                                }.frame(width: model.screenSize.width / 1.3, alignment: .leading)
-                            }
+                            Group {
+                                Text("0x709Cd5F1A1107eD1c4e00A42B349A22701Bebb86")
+                                    .foregroundColor(model.buttonClrObscure)
+                                    .font(.system(size: model.screenSize.width / 25))
+                                    .frame(width: model.screenSize.width / 1.7, height: model.screenSize.width / 25, alignment: .leading)
+                            }.frame(width: model.screenSize.width / 1.3, alignment: .leading)
                         }.padding([.bottom], model.screenSize.width / 8)
                     } else {
                         
                         // MARK: Scan view shown
                         
-                        ZStack {
-                            Rectangle()
-                                .fill(model.bg)
-                                .frame(width: model.screenSize.width / 1.1, height: model.screenSize.width / 5)
-                                .cornerRadius(model.screenSize.width / 15)
-                                .padding([.bottom], model.screenSize.width / 8)
+                        HStack {
+                            Spacer()
                             
-                            HStack {
-                                Spacer()
-                                
-                                Button(action: {
-                                            model.showingQRScan = true
-                                        }, label: {
-                                            if model.showingQRScan {
-                                                VStack {
-                                                    Image(systemName: "viewfinder.circle")
-                                                        .resizable()
-                                                        .frame(width: model.screenSize.width / 12, height: model.screenSize.width / 12)
-                                                        .foregroundColor(model.buttonClrProminent)
-                                                    
-                                                    Text("QR scan")
-                                                        .foregroundColor(model.fontClr)
-                                                        .font(.system(size: model.screenSize.width / 25))
-                                                }.padding([.bottom], model.screenSize.width / 8)
-                                            } else {
-                                                VStack {
-                                                    Image(systemName: "viewfinder.circle")
-                                                        .resizable()
-                                                        .frame(width: model.screenSize.width / 12, height: model.screenSize.width / 12)
-                                                        .foregroundColor(model.buttonClrObscure)
-                                                    
-                                                    Text("QR scan")
-                                                        .foregroundColor(model.buttonClrObscure)
-                                                        .font(.system(size: model.screenSize.width / 25))
-                                                }.padding([.bottom], model.screenSize.width / 8)
+                            Button(action: {
+                                        model.showingQRScan = true
+                                    }, label: {
+                                        if model.showingQRScan {
+                                            VStack {
+                                                Image(systemName: "viewfinder.circle")
+                                                    .resizable()
+                                                    .frame(width: model.screenSize.width / 12, height: model.screenSize.width / 12)
+                                                    .foregroundColor(model.buttonClrProminent)
+                                                
+                                                Text("QR scan")
+                                                    .foregroundColor(model.fontClr)
+                                                    .font(.system(size: model.screenSize.width / 25))
                                             }
-                                })
-                                
-                                Spacer()
-                                
-                                Button(action: {
-                                            model.showingQRScan = false
-                                        }, label: {
-                                            if !model.showingQRScan {
-                                                VStack {
-                                                    Image(systemName: "antenna.radiowaves.left.and.right.circle")
-                                                        .resizable()
-                                                        .frame(width: model.screenSize.width / 12, height: model.screenSize.width / 12)
-                                                        .foregroundColor(model.buttonClrProminent)
-                                                    
-                                                    Text("NFC")
-                                                        .foregroundColor(model.fontClr)
-                                                        .font(.system(size: model.screenSize.width / 25))
-                                                }.padding([.bottom], model.screenSize.width / 8)
-                                            } else {
-                                                VStack {
-                                                    Image(systemName: "antenna.radiowaves.left.and.right.circle")
-                                                        .resizable()
-                                                        .frame(width: model.screenSize.width / 12, height: model.screenSize.width / 12)
-                                                        .foregroundColor(model.buttonClrObscure)
-                                                    
-                                                    Text("NFC")
-                                                        .foregroundColor(model.buttonClrObscure)
-                                                        .font(.system(size: model.screenSize.width / 25))
-                                                }.padding([.bottom], model.screenSize.width / 8)
+                                        } else {
+                                            VStack {
+                                                Image(systemName: "viewfinder.circle")
+                                                    .resizable()
+                                                    .frame(width: model.screenSize.width / 12, height: model.screenSize.width / 12)
+                                                    .foregroundColor(model.buttonClrObscure)
+                                                
+                                                Text("QR scan")
+                                                    .foregroundColor(model.buttonClrObscure)
+                                                    .font(.system(size: model.screenSize.width / 25))
                                             }
-                                })
-                                
-                                Spacer()
-                            }
-                        }
+                                        }
+                            })
+                            
+                            Spacer()
+                            
+                            Button(action: {
+                                        model.showingQRScan = false
+                                    }, label: {
+                                        if !model.showingQRScan {
+                                            VStack {
+                                                Image(systemName: "antenna.radiowaves.left.and.right.circle")
+                                                    .resizable()
+                                                    .frame(width: model.screenSize.width / 12, height: model.screenSize.width / 12)
+                                                    .foregroundColor(model.buttonClrProminent)
+                                                
+                                                Text("NFC")
+                                                    .foregroundColor(model.fontClr)
+                                                    .font(.system(size: model.screenSize.width / 25))
+                                            }
+                                        } else {
+                                            VStack {
+                                                Image(systemName: "antenna.radiowaves.left.and.right.circle")
+                                                    .resizable()
+                                                    .frame(width: model.screenSize.width / 12, height: model.screenSize.width / 12)
+                                                    .foregroundColor(model.buttonClrObscure)
+                                                
+                                                Text("NFC")
+                                                    .foregroundColor(model.buttonClrObscure)
+                                                    .font(.system(size: model.screenSize.width / 25))
+                                            }
+                                        }
+                            })
+                            
+                            Spacer()
+                        }.padding([.bottom], model.screenSize.width / 8)
                     }
                 } else {
                     Text("Get started by adding a new wallet")
