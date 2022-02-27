@@ -27,8 +27,9 @@ class ContentModel: ObservableObject {
     
     // MARK: State variables
     
-    @Published var viewShown: Int = 0
+    @Published var viewShown: Int = 2
     @Published var showingWalletManagerSheet: Bool = false
+    @Published var showingQRScan: Bool = true
     
     @Published var phrase: String = ""
     @Published var addresses: [String] = ["0x709Cd5F1A1107eD1c4e00A42B349A22701Bebb86", "57xndEKxm8hjinu81YAzakxWiC2u7AxS7rZyC2y2KfDC"]

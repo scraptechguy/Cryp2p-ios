@@ -14,7 +14,13 @@ struct ScanView: View {
     @EnvironmentObject var model: ContentModel
     
     var body: some View {
-        CodeScannerView(codeTypes: [.qr], scanMode: .continuous, scanInterval: 0.25, simulatedData: "Fifa", shouldVibrateOnSuccess: true, completion: handleScan)
+        if model.showingQRScan {
+            CodeScannerView(codeTypes: [.qr], scanMode: .continuous, scanInterval: 0.25, simulatedData: "Fifa", shouldVibrateOnSuccess: true, completion: handleScan)
+        } else {
+            Text("NFC")
+                .foregroundColor(model.fontClr)
+                .font(.system(size: model.screenSize.width / 5))
+        }
     }
     
     func handleScan(result: Result<ScanResult, ScanError>) {
