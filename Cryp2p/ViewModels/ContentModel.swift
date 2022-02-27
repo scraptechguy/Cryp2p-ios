@@ -27,7 +27,7 @@ class ContentModel: ObservableObject {
     
     // MARK: State variables
     
-    @Published var viewShown: Int = 2
+    @Published var viewShown: Int = 0
     @Published var showingWalletManagerSheet: Bool = false
     @Published var showingQRScan: Bool = true
     

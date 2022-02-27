@@ -14,12 +14,22 @@ struct ScanView: View {
     @EnvironmentObject var model: ContentModel
     
     var body: some View {
-        if model.showingQRScan {
-            CodeScannerView(codeTypes: [.qr], scanMode: .continuous, scanInterval: 0.25, simulatedData: "Fifa", shouldVibrateOnSuccess: true, completion: handleScan)
-        } else {
-            Text("NFC")
-                .foregroundColor(model.fontClr)
-                .font(.system(size: model.screenSize.width / 5))
+        ZStack {
+            if model.showingQRScan {
+                ZStack {
+                    CodeScannerView(codeTypes: [.qr], scanMode: .continuous, scanInterval: 0.5, simulatedData: "Fifa", shouldVibrateOnSuccess: true, completion: handleScan)
+                        .frame(width: model.screenSize.width / 1.4, height: model.screenSize.width / 1.4)
+                        .padding([.bottom], model.screenSize.width / 3.5)
+                }
+            }
+            
+            if !model.showingQRScan {
+                ZStack {
+                    Text("NFC")
+                        .foregroundColor(model.fontClr)
+                        .font(.system(size: model.screenSize.width / 5))
+                }
+            }
         }
     }
     
