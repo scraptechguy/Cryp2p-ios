@@ -27,8 +27,6 @@
 		908B7E4227C398C900CB3473 /* WalletManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B7E4127C398C900CB3473 /* WalletManager.swift */; };
 		908B7E4427C3992000CB3473 /* PriceTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B7E4327C3992000CB3473 /* PriceTracker.swift */; };
 		90B251A727CAEF400076504F /* Cryp2pTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B251A627CAEF400076504F /* Cryp2pTests.swift */; };
-		90B251AF27CBF65C0076504F /* CoinType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B251AE27CBF65C0076504F /* CoinType.swift */; };
-		90B251B127CBF6A50076504F /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90B251B027CBF6A50076504F /* Coin.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -64,8 +62,6 @@
 		908B7E4327C3992000CB3473 /* PriceTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceTracker.swift; sourceTree = "<group>"; };
 		90B251A427CAEF400076504F /* Cryp2pTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Cryp2pTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		90B251A627CAEF400076504F /* Cryp2pTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cryp2pTests.swift; sourceTree = "<group>"; };
-		90B251AE27CBF65C0076504F /* CoinType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinType.swift; sourceTree = "<group>"; };
-		90B251B027CBF6A50076504F /* Coin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,8 +203,6 @@
 			isa = PBXGroup;
 			children = (
 				908B7E4327C3992000CB3473 /* PriceTracker.swift */,
-				90B251AE27CBF65C0076504F /* CoinType.swift */,
-				90B251B027CBF6A50076504F /* Coin.swift */,
 			);
 			path = SolanaPrice;
 			sourceTree = "<group>";
@@ -324,7 +318,6 @@
 				902316AE27C1544900651CAF /* HomeView.swift in Sources */,
 				902316B127C1546500651CAF /* OnboardingView.swift in Sources */,
 				908B7E3827C16EE900CB3473 /* WalletView.swift in Sources */,
-				90B251AF27CBF65C0076504F /* CoinType.swift in Sources */,
 				908B7E3127C160B200CB3473 /* ReceiveView.swift in Sources */,
 				908B7E4027C29C8000CB3473 /* WalletManagerSheet.swift in Sources */,
 				902316B427C154A700651CAF /* ContentModel.swift in Sources */,
@@ -336,7 +329,6 @@
 				908B7E2F27C1605C00CB3473 /* SendView.swift in Sources */,
 				902316AA27C1542D00651CAF /* LaunchView.swift in Sources */,
 				908B7E3E27C296FA00CB3473 /* NavigationBar.swift in Sources */,
-				90B251B127CBF6A50076504F /* Coin.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
