@@ -24,13 +24,13 @@ struct ReceiveView: View {
                     .foregroundColor(model.fontClr)
                     .font(.system(size: model.screenSize.width / 10))
                 
-                Image(uiImage: generateQRCode(from: model.addresses[0]))
+                Image(uiImage: generateQRCode(from: model.addresses[model.primary]))
                     .resizable()
                     .interpolation(.none)
                     .scaledToFit()
                     .frame(width: model.screenSize.width / 1.4, height: model.screenSize.width / 1.4)
                 
-                Text(model.addresses[0])
+                Text(model.addresses[model.primary])
                     .foregroundColor(model.buttonClrObscure)
                     .font(.system(size: model.screenSize.width / 20))
                     .frame(width: model.screenSize.width / 2, height: model.screenSize.width / 15)
