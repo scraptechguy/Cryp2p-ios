@@ -23,7 +23,9 @@ struct WalletManagerSheet: View {
                     
                     ForEach(model.addresses.indices, id: \.self) { i in
                         Button(action: {
-                                model.primary = i
+                                withAnimation {
+                                    model.primary = i
+                                }
                             }, label: {
                                 ZStack {
                                     Rectangle()
