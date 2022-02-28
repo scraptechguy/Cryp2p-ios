@@ -22,28 +22,40 @@ struct WalletManagerSheet: View {
                         .padding([.top], model.screenSize.width / 8)
                     
                     ForEach(model.addresses.indices, id: \.self) { i in
-                        ZStack {
-                            Rectangle()
-                                .fill(model.objectsClrMedium)
-                                .frame(width: model.screenSize.width / 1.1, height: model.screenSize.width / 5)
-                                .cornerRadius(model.screenSize.width / 15)
-                                
-                            VStack {
-                                Group {
-                                    Text(model.nicknames[i])
-                                        .foregroundColor(model.fontClr)
-                                        .font(.system(size: model.screenSize.width / 17))
-                                        .frame(width: model.screenSize.width / 1.9, height: model.screenSize.width / 15, alignment: .leading)
-                                }.frame(width: model.screenSize.width / 1.3, alignment: .leading)
-                                
-                                Group {
-                                    Text(model.addresses[i])
-                                        .foregroundColor(model.buttonClrObscure)
-                                        .font(.system(size: model.screenSize.width / 25))
-                                        .frame(width: model.screenSize.width / 1.7, height: model.screenSize.width / 25, alignment: .leading)
-                                }.frame(width: model.screenSize.width / 1.3, alignment: .leading)
-                            }
-                        }
+                        Button(action: {
+                                model.primary = i
+                            }, label: {
+                                ZStack {
+                                    Rectangle()
+                                        .fill(model.objectsClrMedium)
+                                        .frame(width: model.screenSize.width / 1.1, height: model.screenSize.width / 5)
+                                        .cornerRadius(model.screenSize.width / 15)
+                                        
+                                    VStack {
+                                        Group {
+                                            Text(model.nicknames[i])
+                                                .foregroundColor(model.fontClr)
+                                                .font(.system(size: model.screenSize.width / 17))
+                                                .frame(width: model.screenSize.width / 1.9, height: model.screenSize.width / 15, alignment: .leading)
+                                        }.frame(width: model.screenSize.width / 1.3, alignment: .leading)
+                                        
+                                        Group {
+                                            Text(model.addresses[i])
+                                                .foregroundColor(model.buttonClrObscure)
+                                                .font(.system(size: model.screenSize.width / 25))
+                                                .frame(width: model.screenSize.width / 1.7, height: model.screenSize.width / 25, alignment: .leading)
+                                        }.frame(width: model.screenSize.width / 1.3, alignment: .leading)
+                                    }
+                                    
+                                    if i == model.primary {
+                                        Group {
+                                            Image(systemName: "checkmark")
+                                                .resizable()
+                                                .frame(width: model.screenSize.width / 22, height: model.screenSize.width / 22)
+                                        }.frame(width: model.screenSize.width / 1.4, alignment: .trailing)
+                                    }
+                                }
+                        })
                     }
                 }.frame(width: model.screenSize.width / 1.1)
                     .padding([.top, .bottom], model.screenSize.width / 10)

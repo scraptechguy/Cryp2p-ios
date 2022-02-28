@@ -17,7 +17,7 @@ struct ScanView: View {
         ZStack {
             if model.showingQRScan {
                 ZStack {
-                    CodeScannerView(codeTypes: [.qr], scanMode: .continuous, scanInterval: 0.5, simulatedData: "Fifa", shouldVibrateOnSuccess: true, completion: handleScan)
+                    CodeScannerView(codeTypes: [.qr], scanMode: .continuous, scanInterval: 0.25, simulatedData: "Fifa", shouldVibrateOnSuccess: true, completion: handleScan)
                         .frame(width: model.screenSize.width / 1.4, height: model.screenSize.width / 1.4)
                         .cornerRadius(model.screenSize.width / 15)
                         .padding([.bottom], model.screenSize.width / 3.5)

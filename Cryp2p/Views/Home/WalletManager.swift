@@ -36,14 +36,14 @@ struct WalletManager: View {
                     if model.viewShown != 2 {
                         VStack {
                             Group {
-                                Text("FífaRosťa")
+                                Text(model.nicknames[model.primary])
                                     .foregroundColor(model.fontClr)
                                     .font(.system(size: model.screenSize.width / 17))
                                     .frame(width: model.screenSize.width / 1.9, height: model.screenSize.width / 15, alignment: .leading)
                             }.frame(width: model.screenSize.width / 1.3, alignment: .leading)
                             
                             Group {
-                                Text("0x709Cd5F1A1107eD1c4e00A42B349A22701Bebb86")
+                                Text(model.addresses[model.primary])
                                     .foregroundColor(model.buttonClrObscure)
                                     .font(.system(size: model.screenSize.width / 25))
                                     .frame(width: model.screenSize.width / 1.7, height: model.screenSize.width / 25, alignment: .leading)
