@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CodeScanner
 
 struct HomeView: View {
     // Access data in ContentModel.swift
