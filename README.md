@@ -32,6 +32,13 @@ Because we find painful:
 + Manipulation with wallet addresses
 + Sending wallet addresses electronically when you're standing next to the recepient
 
+## Funtionality
+
+What can you do with the app?
+
+- Keep track of frequent contacts, adding real names to them
+- Make instant transactions with minimal fees with people who are both 2 feet or 2000 miles away
+
 
 ## Full documentation 
 
