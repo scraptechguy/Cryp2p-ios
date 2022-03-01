@@ -72,11 +72,21 @@ struct AddWalletSheet: View {
                             message = "Missing fields"
                             return
                         } else {
-                            model.nicknames.append(nickname)
-                            model.addresses.append(address)
-                            statusFontColor = Color(red: 98 / 255, green: 252 / 255, blue: 98 / 255)
-                            message = "Success"
-                            model.showingAddWalletSheet = false
+                            if model.addresses == [""] && model.nicknames == [""] {
+                                model.nicknames.append(nickname)
+                                model.addresses.append(address)
+                                model.nicknames.remove(at: 0)
+                                model.addresses.remove(at: 0)
+                                statusFontColor = Color(red: 98 / 255, green: 252 / 255, blue: 98 / 255)
+                                message = "Success"
+                                model.showingAddWalletSheet = false
+                            } else {
+                                model.nicknames.append(nickname)
+                                model.addresses.append(address)
+                                statusFontColor = Color(red: 98 / 255, green: 252 / 255, blue: 98 / 255)
+                                message = "Success"
+                                model.showingAddWalletSheet = false
+                            }
                         }
                     }, label: {
                         SmallButtonLabel(text: "Log in")
