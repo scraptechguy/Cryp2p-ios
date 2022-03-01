@@ -67,7 +67,9 @@ struct WalletManager: View {
                                 Spacer()
                                 
                                 Button(action: {
-                                            model.showingQRScan = true
+                                            withAnimation {
+                                                model.showingQRScan = true
+                                            }
                                         }, label: {
                                             if model.showingQRScan {
                                                 VStack {
@@ -97,7 +99,9 @@ struct WalletManager: View {
                                 Spacer()
                                 
                                 Button(action: {
-                                            model.showingQRScan = false
+                                            withAnimation {
+                                                model.showingQRScan = false
+                                            }
                                         }, label: {
                                             if !model.showingQRScan {
                                                 VStack {
