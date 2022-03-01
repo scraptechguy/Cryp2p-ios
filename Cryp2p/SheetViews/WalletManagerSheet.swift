@@ -59,6 +59,27 @@ struct WalletManagerSheet: View {
                                 }
                         })
                     }
+                    
+                    Button(action: {
+                            model.showingAddWalletSheet = true
+                        }, label: {
+                            ZStack {
+                                Rectangle()
+                                    .fill(model.objectsClrMedium)
+                                    .frame(width: model.screenSize.width / 1.1, height: model.screenSize.width / 8)
+                                    .cornerRadius(model.screenSize.width / 15)
+                                
+                                HStack {
+                                    Image(systemName: "plus")
+                                        .foregroundColor(model.buttonClrProminent)
+                                    
+                                    Text("Add wallet")
+                                        .foregroundColor(model.buttonClrProminent)
+                                        .font(.system(size: model.screenSize.width / 18))
+                                }
+                            }
+                        }).sheet(isPresented: $model.showingAddWalletSheet) {AddWalletSheet()}
+                        .padding([.top], model.screenSize.width)
                 }.frame(width: model.screenSize.width / 1.1)
                     .padding([.top, .bottom], model.screenSize.width / 10)
             }

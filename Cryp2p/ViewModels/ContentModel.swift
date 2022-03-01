@@ -30,6 +30,7 @@ class ContentModel: ObservableObject {
     @Published var viewShown: Int = 0
     @Published var primary: Int = 0
     @Published var showingWalletManagerSheet: Bool = false
+    @Published var showingAddWalletSheet: Bool = false
     @Published var showingQRScan: Bool = true
     
     @Published var phrase: String = ""

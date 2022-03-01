@@ -26,7 +26,7 @@
 		908B7E4027C29C8000CB3473 /* WalletManagerSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B7E3F27C29C8000CB3473 /* WalletManagerSheet.swift */; };
 		908B7E4227C398C900CB3473 /* WalletManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B7E4127C398C900CB3473 /* WalletManager.swift */; };
 		908B7E4427C3992000CB3473 /* PriceTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B7E4327C3992000CB3473 /* PriceTracker.swift */; };
-		90D54F1627CDFACF0018F58A /* AddWalletView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D54F1527CDFACF0018F58A /* AddWalletView.swift */; };
+		90D54F1827CE0E280018F58A /* AddWalletSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D54F1727CE0E280018F58A /* AddWalletSheet.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -61,7 +61,7 @@
 		908B7E4127C398C900CB3473 /* WalletManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletManager.swift; sourceTree = "<group>"; };
 		908B7E4327C3992000CB3473 /* PriceTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceTracker.swift; sourceTree = "<group>"; };
 		90B251A427CAEF400076504F /* Cryp2pTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Cryp2pTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		90D54F1527CDFACF0018F58A /* AddWalletView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWalletView.swift; sourceTree = "<group>"; };
+		90D54F1727CE0E280018F58A /* AddWalletSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWalletSheet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -174,6 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				908B7E3F27C29C8000CB3473 /* WalletManagerSheet.swift */,
+				90D54F1727CE0E280018F58A /* AddWalletSheet.swift */,
 			);
 			path = SheetViews;
 			sourceTree = "<group>";
@@ -183,7 +184,6 @@
 			children = (
 				908B7E3727C16EE900CB3473 /* WalletView.swift */,
 				908B7E3027C160B200CB3473 /* ReceiveView.swift */,
-				90D54F1527CDFACF0018F58A /* AddWalletView.swift */,
 				908B7E3227C160C400CB3473 /* ScanView.swift */,
 				908B7E2E27C1605C00CB3473 /* SendView.swift */,
 				908B7E3927C16EF600CB3473 /* SettingsView.swift */,
@@ -307,6 +307,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				908B7E4227C398C900CB3473 /* WalletManager.swift in Sources */,
+				90D54F1827CE0E280018F58A /* AddWalletSheet.swift in Sources */,
 				902316AE27C1544900651CAF /* HomeView.swift in Sources */,
 				902316B127C1546500651CAF /* OnboardingView.swift in Sources */,
 				908B7E3827C16EE900CB3473 /* WalletView.swift in Sources */,
@@ -317,7 +318,6 @@
 				908B7E3327C160C400CB3473 /* ScanView.swift in Sources */,
 				908B7E2D27C15E8500CB3473 /* LabelStyles.swift in Sources */,
 				908B7E3A27C16EF600CB3473 /* SettingsView.swift in Sources */,
-				90D54F1627CDFACF0018F58A /* AddWalletView.swift in Sources */,
 				908B7E4427C3992000CB3473 /* PriceTracker.swift in Sources */,
 				908B7E2F27C1605C00CB3473 /* SendView.swift in Sources */,
 				902316AA27C1542D00651CAF /* LaunchView.swift in Sources */,
