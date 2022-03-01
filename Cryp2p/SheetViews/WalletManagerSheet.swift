@@ -21,75 +21,103 @@ struct WalletManagerSheet: View {
                     Heading(text: "Connected wallets")
                         .padding([.top], model.screenSize.width / 8)
                     
-                    ForEach(model.addresses.indices, id: \.self) { i in
-                        Button(action: {
-                                withAnimation {
-                                    model.primary = i
-                                }
-                            }, label: {
-                                ZStack {
-                                    Rectangle()
-                                        .fill(model.objectsClrMedium)
-                                        .frame(width: model.screenSize.width / 1.1, height: model.screenSize.width / 5)
-                                        .cornerRadius(model.screenSize.width / 15)
-                                        
-                                    VStack {
-                                        Group {
-                                            Text(model.nicknames[i])
-                                                .foregroundColor(model.fontClr)
-                                                .font(.system(size: model.screenSize.width / 17))
-                                                .frame(width: model.screenSize.width / 1.9, height: model.screenSize.width / 15, alignment: .leading)
-                                        }.frame(width: model.screenSize.width / 1.3, alignment: .leading)
-                                        
-                                        Group {
-                                            Text(model.addresses[i])
-                                                .foregroundColor(model.buttonClrObscure)
-                                                .font(.system(size: model.screenSize.width / 25))
-                                                .frame(width: model.screenSize.width / 1.7, height: model.screenSize.width / 25, alignment: .leading)
-                                        }.frame(width: model.screenSize.width / 1.3, alignment: .leading)
+                    if model.addresses != [""] && model.nicknames != [""] {
+                        ForEach(model.addresses.indices, id: \.self) { i in
+                            Button(action: {
+                                    withAnimation {
+                                        model.primary = i
                                     }
-                                    
-                                    if i == model.primary {
-                                        Group {
-                                            Image(systemName: "checkmark")
-                                                .resizable()
-                                                .frame(width: model.screenSize.width / 22, height: model.screenSize.width / 22)
-                                        }.frame(width: model.screenSize.width / 1.4, alignment: .trailing)
+                                }, label: {
+                                    ZStack {
+                                        Rectangle()
+                                            .fill(model.objectsClrMedium)
+                                            .frame(width: model.screenSize.width / 1.1, height: model.screenSize.width / 5)
+                                            .cornerRadius(model.screenSize.width / 15)
+                                            
+                                        VStack {
+                                            Group {
+                                                Text(model.nicknames[i])
+                                                    .foregroundColor(model.fontClr)
+                                                    .font(.system(size: model.screenSize.width / 17))
+                                                    .frame(width: model.screenSize.width / 1.9, height: model.screenSize.width / 15, alignment: .leading)
+                                            }.frame(width: model.screenSize.width / 1.3, alignment: .leading)
+                                            
+                                            Group {
+                                                Text(model.addresses[i])
+                                                    .foregroundColor(model.buttonClrObscure)
+                                                    .font(.system(size: model.screenSize.width / 25))
+                                                    .frame(width: model.screenSize.width / 1.7, height: model.screenSize.width / 25, alignment: .leading)
+                                            }.frame(width: model.screenSize.width / 1.3, alignment: .leading)
+                                        }
+                                        
+                                        if i == model.primary {
+                                            Group {
+                                                Image(systemName: "checkmark")
+                                                    .resizable()
+                                                    .frame(width: model.screenSize.width / 22, height: model.screenSize.width / 22)
+                                            }.frame(width: model.screenSize.width / 1.4, alignment: .trailing)
+                                        }
                                     }
-                                }
-                        })
-                    }
-                    
-                    Button(action: {
-                            model.showingAddWalletSheet = true
-                        }, label: {
-                            ZStack {
-                                Rectangle()
-                                    .fill(model.objectsClrMedium)
-                                    .frame(width: model.screenSize.width / 1.1, height: model.screenSize.width / 8)
-                                    .cornerRadius(model.screenSize.width / 15)
-                                
-                                HStack {
-                                    Image(systemName: "plus")
-                                        .foregroundColor(model.buttonClrProminent)
+                            }).contextMenu {
+                                Button(role: .destructive,
+                                       action: {
+                                            let index = model.addresses.firstIndex(of: model.addresses[i])
                                     
-                                    Text("Add wallet")
-                                        .foregroundColor(model.buttonClrProminent)
-                                        .font(.system(size: model.screenSize.width / 18))
-                                }
+                                            if model.addresses.count == 1 {
+                                                model.addresses.append("")
+                                                model.nicknames.append("")
+                                                model.addresses.remove(at: index!)
+                                                model.nicknames.remove(at: index!)
+                                                model.primary = 0
+                                            } else {
+                                                model.addresses.remove(at: index!)
+                                                model.nicknames.remove(at: index!)
+                                                model.primary = 0
+                                            }
+                                        },
+                                       
+                                       label: {
+                                            Label("Sign out", systemImage: "trash")
+                                })
                             }
-                        }).sheet(isPresented: $model.showingAddWalletSheet) {AddWalletSheet()}
-                        .padding([.top], model.screenSize.width)
+                        }
+                    } else {
+                        Text("Wallets will be visible here,\nadd one first!")        .foregroundColor(model.buttonClrObscure)
+                            .font(.system(size: model.screenSize.width / 20))
+                            .padding([.top], model.screenSize.width / 8)
+                            .multilineTextAlignment(.center)
+                    }
                 }.frame(width: model.screenSize.width / 1.1)
                     .padding([.top, .bottom], model.screenSize.width / 10)
             }
+            
+            Button(action: {
+                    model.showingAddWalletSheet = true
+                }, label: {
+                    ZStack {
+                        Rectangle()
+                            .fill(model.objectsClrMedium)
+                            .frame(width: model.screenSize.width / 1.1, height: model.screenSize.width / 8)
+                            .cornerRadius(model.screenSize.width / 15)
+                        
+                        HStack {
+                            Image(systemName: "plus")
+                                .foregroundColor(model.buttonClrProminent)
+                            
+                            Text("Add wallet")
+                                .foregroundColor(model.buttonClrProminent)
+                                .font(.system(size: model.screenSize.width / 18))
+                        }
+                    }
+                }).sheet(isPresented: $model.showingAddWalletSheet) {AddWalletSheet()}
+                .padding([.top], model.screenSize.width / 0.55)
             
             VStack {
                 ZStack {
                     Title(text: "Wallet manager")
                     
                     VStack() {
-                        Button(action: { model.showingWalletManagerSheet.toggle()},
+                        Button(action: { model.showingWalletManagerSheet = false},
                                label: {
                                     Text("Cancel")
                                         .padding([.bottom], model.screenSize.width / 25)
