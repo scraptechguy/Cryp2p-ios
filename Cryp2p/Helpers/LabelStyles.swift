@@ -50,6 +50,31 @@ struct Title: View {
 }
 
 
+// MARK: Small button label
+
+struct SmallButtonLabel: View {
+    // Access data in ContentModel.swift
+    
+    @EnvironmentObject var model: ContentModel
+    
+    var text: String
+    
+    var body: some View {
+        ZStack {
+            Rectangle()
+                .fill(model.objectsClrMedium)
+                .frame(width: model.screenSize.width / 2, height: model.screenSize.width / 8)
+                .cornerRadius(model.screenSize.width / 28)
+        
+            Text(text)
+                .foregroundColor(model.fontClr)
+                .font(.system(size: model.screenSize.width / 17))
+                .frame(width: model.screenSize.width / 1.6, height: model.screenSize.width / 8, alignment: .center)
+        }
+    }
+}
+
+
 // MARK: Button label
 
 struct ButtonLabel: View {
