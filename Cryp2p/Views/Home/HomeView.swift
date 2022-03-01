@@ -49,7 +49,7 @@ struct HomeView: View {
             // MARK: Price tracker
             
             PriceTracker()
-        }
+        }.preferredColorScheme(.dark)
     }
 }
 
