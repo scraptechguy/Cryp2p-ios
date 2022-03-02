@@ -22,75 +22,86 @@ struct WalletManagerSheet: View {
                         .padding([.top], model.screenSize.width / 8)
                     
                     if model.addresses != [""] && model.nicknames != [""] {
-                        ForEach(model.addresses.indices, id: \.self) { i in
-                            Button(action: {
-                                    withAnimation {
-                                        model.primary = i
-                                    }
-                                }, label: {
-                                    ZStack {
-                                        Rectangle()
-                                            .fill(model.objectsClrMedium)
-                                            .frame(width: model.screenSize.width / 1.1, height: model.screenSize.width / 5)
-                                            .cornerRadius(model.screenSize.width / 15)
-                                            
-                                        VStack {
-                                            Group {
-                                                Text(model.nicknames[i])
-                                                    .foregroundColor(model.fontClr)
-                                                    .font(.system(size: model.screenSize.width / 17))
-                                                    .frame(width: model.screenSize.width / 1.9, height: model.screenSize.width / 15, alignment: .leading)
-                                            }.frame(width: model.screenSize.width / 1.3, alignment: .leading)
-                                            
-                                            Group {
-                                                Text(model.addresses[i])
-                                                    .foregroundColor(model.buttonClrObscure)
-                                                    .font(.system(size: model.screenSize.width / 25))
-                                                    .frame(width: model.screenSize.width / 1.7, height: model.screenSize.width / 25, alignment: .leading)
-                                            }.frame(width: model.screenSize.width / 1.3, alignment: .leading)
+                        withAnimation {
+                            ForEach(model.addresses.indices, id: \.self) { i in
+                                Button(action: {
+                                        withAnimation {
+                                            model.primary = i
                                         }
-                                        
-                                        if i == model.primary {
-                                            Group {
-                                                Image(systemName: "checkmark")
-                                                    .resizable()
-                                                    .frame(width: model.screenSize.width / 22, height: model.screenSize.width / 22)
-                                            }.frame(width: model.screenSize.width / 1.4, alignment: .trailing)
-                                        }
-                                    }
-                            }).contextMenu {
-                                Button(role: .destructive,
-                                       action: {
-                                            let index = model.addresses.firstIndex(of: model.addresses[i])
-                                    
-                                            if model.addresses.count == 1 {
-                                                model.addresses.append("")
-                                                model.nicknames.append("")
-                                                model.addresses.remove(at: index!)
-                                                model.nicknames.remove(at: index!)
-                                                model.primary = 0
-                                            } else if model.primary == i {
-                                                model.addresses.remove(at: index!)
-                                                model.nicknames.remove(at: index!)
-                                                model.primary = 0
-                                            } else if model.primary < i {
-                                                model.addresses.remove(at: index!)
-                                                model.nicknames.remove(at: index!)
-                                                model.primary = index! - 1
-                                            } else {
-                                                model.addresses.remove(at: index!)
-                                                model.nicknames.remove(at: index!)
-                                                model.primary = i
+                                    }, label: {
+                                        ZStack {
+                                            Rectangle()
+                                                .fill(model.objectsClrMedium)
+                                                .frame(width: model.screenSize.width / 1.1, height: model.screenSize.width / 5)
+                                                .cornerRadius(model.screenSize.width / 15)
+                                                
+                                            VStack {
+                                                Group {
+                                                    Text(model.nicknames[i])
+                                                        .foregroundColor(model.fontClr)
+                                                        .font(.system(size: model.screenSize.width / 17))
+                                                        .frame(width: model.screenSize.width / 1.9, height: model.screenSize.width / 15, alignment: .leading)
+                                                }.frame(width: model.screenSize.width / 1.3, alignment: .leading)
+                                                
+                                                Group {
+                                                    Text(model.addresses[i])
+                                                        .foregroundColor(model.buttonClrObscure)
+                                                        .font(.system(size: model.screenSize.width / 25))
+                                                        .frame(width: model.screenSize.width / 1.7, height: model.screenSize.width / 25, alignment: .leading)
+                                                }.frame(width: model.screenSize.width / 1.3, alignment: .leading)
                                             }
-                                        },
-                                       
-                                       label: {
-                                            Label("Sign out", systemImage: "trash")
-                                })
+                                            
+                                            if i == model.primary {
+                                                Group {
+                                                    Image(systemName: "checkmark")
+                                                        .resizable()
+                                                        .frame(width: model.screenSize.width / 22, height: model.screenSize.width / 22)
+                                                }.frame(width: model.screenSize.width / 1.4, alignment: .trailing)
+                                            }
+                                        }
+                                }).contextMenu {
+                                    Button(role: .destructive,
+                                           action: {
+                                                let index = model.addresses.firstIndex(of: model.addresses[i])
+                                        
+                                                if model.addresses.count == 1 {
+                                                    withAnimation {
+                                                        model.addresses.append("")
+                                                        model.nicknames.append("")
+                                                        model.addresses.remove(at: index!)
+                                                        model.nicknames.remove(at: index!)
+                                                        model.primary = 0
+                                                    }
+                                                } else if model.primary == i {
+                                                    withAnimation {
+                                                        model.addresses.remove(at: index!)
+                                                        model.nicknames.remove(at: index!)
+                                                        model.primary = 0
+                                                    }
+                                                } else if model.primary < i {
+                                                    withAnimation {
+                                                        model.addresses.remove(at: index!)
+                                                        model.nicknames.remove(at: index!)
+                                                        model.primary = index! - 1
+                                                    }
+                                                } else {
+                                                    withAnimation {
+                                                        model.addresses.remove(at: index!)
+                                                        model.nicknames.remove(at: index!)
+                                                        model.primary = i
+                                                    }
+                                                }
+                                            },
+                                           
+                                           label: {
+                                                Label("Sign out", systemImage: "trash")
+                                    })
+                                }
                             }
                         }
                     } else {
-                        Text("Wallets will be visible here,\nadd one first!")        .foregroundColor(model.buttonClrObscure)
+                        Text("Wallets will be visible here,\nadd one first!")
+                            .foregroundColor(model.buttonClrObscure)
                             .font(.system(size: model.screenSize.width / 20))
                             .padding([.top], model.screenSize.width / 8)
                             .multilineTextAlignment(.center)
