@@ -69,10 +69,18 @@ struct WalletManagerSheet: View {
                                                 model.addresses.remove(at: index!)
                                                 model.nicknames.remove(at: index!)
                                                 model.primary = 0
-                                            } else {
+                                            } else if model.primary == i {
+                                                model.addresses.remove(at: index!)
+                                                model.nicknames.remove(at: index!)
+                                                model.primary = 0
+                                            } else if model.primary < i {
                                                 model.addresses.remove(at: index!)
                                                 model.nicknames.remove(at: index!)
                                                 model.primary = index! - 1
+                                            } else {
+                                                model.addresses.remove(at: index!)
+                                                model.nicknames.remove(at: index!)
+                                                model.primary = i
                                             }
                                         },
                                        
