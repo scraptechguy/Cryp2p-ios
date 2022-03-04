@@ -26,7 +26,7 @@ struct WalletManager: View {
                 // MARK: Scan view not shown
                 
                 if model.addresses != [""] && model.nicknames != [""]  {
-                    if model.viewShown != 2 {
+                    if model.viewShown != 2 && model.viewShown != 1 {
                         Button(action: {
                                 model.showingWalletManagerSheet = true
                             }, label: {
@@ -55,7 +55,7 @@ struct WalletManager: View {
                         }).padding([.bottom], model.screenSize.width / 8)
                     } else {
                         
-                        // MARK: Scan view shown
+                        // MARK: Scan or Receive view shown
                         
                         ZStack {
                             Rectangle()

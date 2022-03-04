@@ -19,27 +19,39 @@ struct ReceiveView: View {
     
     var body: some View {
         ZStack {
-            VStack {
-                Image(uiImage: generateQRCode(from: model.addresses[model.primary]))
-                    .resizable()
-                    .interpolation(.none)
-                    .scaledToFit()
-                    .frame(width: model.screenSize.width / 1.4, height: model.screenSize.width / 1.4)
-                
+            if model.showingQRScan {
+                VStack {
+                    Image(uiImage: generateQRCode(from: model.addresses[model.primary]))
+                        .resizable()
+                        .interpolation(.none)
+                        .scaledToFit()
+                        .frame(width: model.screenSize.width / 1.4, height: model.screenSize.width / 1.4)
+                    
+                    Button(action: {
+                            UIPasteboard.general.string = model.addresses[model.primary]
+                        }, label: {
+                            HStack {
+                                Text(model.addresses[model.primary])
+                                    .foregroundColor(model.buttonClrObscure)
+                                    .font(.system(size: model.screenSize.width / 20))
+                                    .frame(width: model.screenSize.width / 2, height: model.screenSize.width / 15)
+                                    .padding([.top])
+                                    .padding([.bottom], model.screenSize.width / 3.5)
+                                
+                                Image(systemName: "rectangle.on.rectangle")
+                                    .padding([.top])
+                                    .padding([.bottom], model.screenSize.width / 3.5)
+                            }
+                    })
+                }
+            } else {
                 Button(action: {
-                        UIPasteboard.general.string = model.addresses[model.primary]
+                        
                     }, label: {
                         HStack {
-                            Text(model.addresses[model.primary])
-                                .foregroundColor(model.buttonClrObscure)
-                                .font(.system(size: model.screenSize.width / 20))
-                                .frame(width: model.screenSize.width / 2, height: model.screenSize.width / 15)
-                                .padding([.top])
-                                .padding([.bottom], model.screenSize.width / 3.5)
+                            Image(systemName: "viewfinder.circle")
                             
-                            Image(systemName: "rectangle.on.rectangle")
-                                .padding([.top])
-                                .padding([.bottom], model.screenSize.width / 3.5)
+                            Text("Start transmitting")
                         }
                 })
             }
