@@ -14,7 +14,7 @@ struct ScanView: View {
     
     @EnvironmentObject var model: ContentModel
     
-    @State private var message: String = "Scanning active!"
+    @State private var statusMessage: String = "Scanning active!"
     @State private var statusFontColor: Color = .white
     
     var session: NFCNDEFReaderSession?
@@ -53,7 +53,7 @@ struct ScanView: View {
                 
                 Spacer()
                 
-                Text(message)
+                Text(statusMessage)
                     .foregroundColor(model.fontClr)
                     .multilineTextAlignment(.center)
             }.frame(width: model.screenSize.width / 1.7)
@@ -66,18 +66,18 @@ struct ScanView: View {
             case .success(let result):
                 if result.string.count == 44 {
                     withAnimation {
-                        message = "Scanning successful!"
+                        statusMessage = "Scanning successful!"
                         statusFontColor = Color(red: 98 / 255, green: 252 / 255, blue: 98 / 255)
                         model.phrase = result.string
                     
                         model.viewShown = 3
                         
-                        message = "Scanning active!"
+                        statusMessage = "Scanning active!"
                         statusFontColor = .white
                     }
                 } else {
                     withAnimation {
-                        message = "Oops, this is not a valid address!"
+                        statusMessage = "Oops, this is not a valid address!"
                         statusFontColor = Color(red: 252 / 255, green: 98 / 255, blue: 98 / 255)
                     }
                 }
