@@ -7,6 +7,7 @@
 
 import SwiftUI
 import CodeScanner
+import CoreNFC
 
 struct ScanView: View {
     // Access data in ContentModel.swift
@@ -16,6 +17,8 @@ struct ScanView: View {
     @State private var message: String = "Scanning active!"
     @State private var statusFontColor: Color = .white
     
+    var session: NFCNDEFReaderSession?
+    
     var body: some View {
         ZStack {
             if model.showingQRScan {
@@ -24,33 +27,37 @@ struct ScanView: View {
                         .frame(width: model.screenSize.width / 1.4, height: model.screenSize.width / 1.4)
                         .cornerRadius(model.screenSize.width / 15)
                         .padding([.bottom], model.screenSize.width / 2.5)
-                    
-                    HStack {
-                        Circle()
-                            .fill(statusFontColor)
-                            .frame(width: model.screenSize.width / 40, height: model.screenSize.width / 40)
-                        
-                        Text("Status: ")
-                            .foregroundColor(model.buttonClrObscure)
-                            .font(.system(size: model.screenSize.width / 25))
-                        
-                        Spacer()
-                        
-                        Text(message)
-                            .foregroundColor(model.fontClr)
-                            .multilineTextAlignment(.center)
-                    }.frame(width: model.screenSize.width / 1.7)
-                        .padding([.top], model.screenSize.width / 1.5)
+                }
+            } else {
+                ZStack {
+                    Button(action: {
+                            session?.begin()
+                        }, label: {
+                            HStack {
+                                Image(systemName: "viewfinder.circle")
+                                
+                                Text("Start scan")
+                            }
+                        })
                 }
             }
             
-            if !model.showingQRScan {
-                ZStack {
-                    Text("NFC")
-                        .foregroundColor(model.fontClr)
-                        .font(.system(size: model.screenSize.width / 5))
-                }
-            }
+            HStack {
+                Circle()
+                    .fill(statusFontColor)
+                    .frame(width: model.screenSize.width / 40, height: model.screenSize.width / 40)
+                
+                Text("Status: ")
+                    .foregroundColor(model.buttonClrObscure)
+                    .font(.system(size: model.screenSize.width / 25))
+                
+                Spacer()
+                
+                Text(message)
+                    .foregroundColor(model.fontClr)
+                    .multilineTextAlignment(.center)
+            }.frame(width: model.screenSize.width / 1.7)
+                .padding([.top], model.screenSize.width / 1.5)
         }
     }
     
@@ -78,6 +85,24 @@ struct ScanView: View {
             case .failure(let error):
                 print("Scanning failed: \(error.localizedDescription)")
         }
+    }
+    
+    class ViewController: UIViewController, NFCNDEFReaderSessionDelegate, ObservableObject {
+        func readerSession(_ session: NFCNDEFReaderSession, didDetectNDEFs messages: [NFCNDEFMessage]) {
+            for message in messages {
+                 for record in message.records {
+                     if let string = String(data: record.payload, encoding: .ascii) {
+                         print(string)
+                     }
+                 }
+             }
+        }
+
+        func readerSession(_ session: NFCNDEFReaderSession, didInvalidateWithError error: Error) {
+            print(error.localizedDescription)
+        }
+        
+        var session = NFCNDEFReaderSession(delegate: ViewController(), queue: DispatchQueue.main, invalidateAfterFirstRead: false)
     }
 }
 
