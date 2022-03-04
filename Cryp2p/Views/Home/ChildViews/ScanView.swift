@@ -38,7 +38,7 @@ struct ScanView: View {
                                 
                                 Text("Start scan")
                             }
-                        })
+                    })
                 }
             }
             
@@ -83,7 +83,8 @@ struct ScanView: View {
                 }
                 
             case .failure(let error):
-                print("Scanning failed: \(error.localizedDescription)")
+                statusMessage = "Scanning failed: \(error.localizedDescription)"
+                statusFontColor = Color(red: 252 / 255, green: 98 / 255, blue: 98 / 255)
         }
     }
     
