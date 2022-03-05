@@ -9,6 +9,42 @@
           "revision": "c27a66149b7483fe42e2ec6aad61d5c3fffe522d",
           "version": "2.1.1"
         }
+      },
+      {
+        "package": "RxSwift",
+        "repositoryURL": "https://github.com/ReactiveX/RxSwift.git",
+        "state": {
+          "branch": null,
+          "revision": "b4307ba0b6425c0ba4178e138799946c3da594f8",
+          "version": "6.5.0"
+        }
+      },
+      {
+        "package": "Solana",
+        "repositoryURL": "https://github.com/ajamaica/Solana.Swift",
+        "state": {
+          "branch": null,
+          "revision": "58aed5c6cccc7fa98ba08dd073ab16df750ee0b2",
+          "version": "1.1.0"
+        }
+      },
+      {
+        "package": "Starscream",
+        "repositoryURL": "https://github.com/daltoniam/Starscream.git",
+        "state": {
+          "branch": null,
+          "revision": "df8d82047f6654d8e4b655d1b1525c64e1059d21",
+          "version": "4.0.4"
+        }
+      },
+      {
+        "package": "TweetNacl",
+        "repositoryURL": "https://github.com/bitmark-inc/tweetnacl-swiftwrap.git",
+        "state": {
+          "branch": null,
+          "revision": "f8fd111642bf2336b11ef9ea828510693106e954",
+          "version": "1.1.0"
+        }
       }
     ]
   },

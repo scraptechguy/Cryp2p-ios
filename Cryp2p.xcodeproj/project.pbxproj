@@ -16,6 +16,7 @@
 		902316B427C154A700651CAF /* ContentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902316B327C154A700651CAF /* ContentModel.swift */; };
 		902316B627C1563E00651CAF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 902316B527C1563E00651CAF /* LaunchScreen.storyboard */; };
 		9043CBAF27C555B60096F5BF /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = 9043CBAE27C555B60096F5BF /* CodeScanner */; };
+		90453AD427D355EB004117A6 /* Solana in Frameworks */ = {isa = PBXBuildFile; productRef = 90453AD327D355EB004117A6 /* Solana */; };
 		908B7E2D27C15E8500CB3473 /* LabelStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B7E2C27C15E8500CB3473 /* LabelStyles.swift */; };
 		908B7E2F27C1605C00CB3473 /* SendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B7E2E27C1605C00CB3473 /* SendView.swift */; };
 		908B7E3127C160B200CB3473 /* ReceiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B7E3027C160B200CB3473 /* ReceiveView.swift */; };
@@ -69,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				90453AD427D355EB004117A6 /* Solana in Frameworks */,
 				9043CBAF27C555B60096F5BF /* CodeScanner in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -217,6 +219,7 @@
 			name = Cryp2p;
 			packageProductDependencies = (
 				9043CBAE27C555B60096F5BF /* CodeScanner */,
+				90453AD327D355EB004117A6 /* Solana */,
 			);
 			productName = Cryp2p;
 			productReference = 9023169827C1513300651CAF /* Cryp2p.app */;
@@ -270,6 +273,7 @@
 			mainGroup = 9023168F27C1513300651CAF;
 			packageReferences = (
 				9043CBAD27C555B60096F5BF /* XCRemoteSwiftPackageReference "CodeScanner" */,
+				90453AD227D355EB004117A6 /* XCRemoteSwiftPackageReference "Solana" */,
 			);
 			productRefGroup = 9023169927C1513300651CAF /* Products */;
 			projectDirPath = "";
@@ -604,6 +608,14 @@
 				minimumVersion = 2.0.0;
 			};
 		};
+		90453AD227D355EB004117A6 /* XCRemoteSwiftPackageReference "Solana" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/ajamaica/Solana.Swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.0.0;
+			};
+		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
@@ -611,6 +623,11 @@
 			isa = XCSwiftPackageProductDependency;
 			package = 9043CBAD27C555B60096F5BF /* XCRemoteSwiftPackageReference "CodeScanner" */;
 			productName = CodeScanner;
+		};
+		90453AD327D355EB004117A6 /* Solana */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 90453AD227D355EB004117A6 /* XCRemoteSwiftPackageReference "Solana" */;
+			productName = Solana;
 		};
 /* End XCSwiftPackageProductDependency section */
 	};
