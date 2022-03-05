@@ -17,7 +17,7 @@ struct ScanView: View {
     @State private var statusMessage: String = "Scanning active!"
     @State private var statusFontColor: Color = .white
     
-    var session: NFCNDEFReaderSession?
+    @State var data = ""
     
     var body: some View {
         ZStack {
@@ -30,15 +30,11 @@ struct ScanView: View {
                 }
             } else {
                 ZStack {
-                    Button(action: {
-                            session?.begin()
-                        }, label: {
-                            HStack {
-                                Image(systemName: "viewfinder.circle")
-                                
-                                Text("Start scan")
-                            }
-                    })
+                    VStack {
+                        Text(data)
+                        
+                        nfcButton(data: self.$data)
+                    }
                 }
             }
             
@@ -87,25 +83,77 @@ struct ScanView: View {
                 statusFontColor = Color(red: 252 / 255, green: 98 / 255, blue: 98 / 255)
         }
     }
-    
-    class ViewController: UIViewController, NFCNDEFReaderSessionDelegate, ObservableObject {
-        func readerSession(_ session: NFCNDEFReaderSession, didDetectNDEFs messages: [NFCNDEFMessage]) {
-            for message in messages {
-                 for record in message.records {
-                     if let string = String(data: record.payload, encoding: .ascii) {
-                         print(string)
-                     }
-                 }
-             }
-        }
+}
 
-        func readerSession(_ session: NFCNDEFReaderSession, didInvalidateWithError error: Error) {
-            print(error.localizedDescription)
+
+struct nfcButton: UIViewRepresentable {
+    @Binding var data: String
+    
+    func makeUIView(context: UIViewRepresentableContext<nfcButton>) -> UIButton {
+        let button = UIButton()
+        button.setTitle("Start scanning", for: .normal)
+        button.addTarget(context.coordinator, action: #selector(context.coordinator.beginScan(_:)), for: .touchUpInside)
+        return button
+    }
+    
+    func updateUIView(_ uiView: UIButton, context: UIViewRepresentableContext<nfcButton>) {
+        // nope
+    }
+    
+    func makeCoordinator() -> nfcButton.Coordinator {
+        return Coordinator(data: $data)
+    }
+    
+    class Coordinator: NSObject, NFCNDEFReaderSessionDelegate {
+        var session: NFCNDEFReaderSession?
+        @Binding var data: String
+        
+        init(data: Binding<String>) {
+            _data = data
         }
         
-        var session = NFCNDEFReaderSession(delegate: ViewController(), queue: DispatchQueue.main, invalidateAfterFirstRead: false)
+        @objc func beginScan(_ sender: Any) {
+            guard NFCNDEFReaderSession.readingAvailable else {
+                print("Error: Scanning not supported!")
+                return
+            }
+            
+            session = NFCNDEFReaderSession(delegate: self, queue: .main, invalidateAfterFirstRead: true)
+            session?.alertMessage = "Hold your iPhone near to scan!"
+            session?.begin()
+        }
+        
+        func readerSession(_ session: NFCNDEFReaderSession, didDetect tags: [NFCNDEFTag]) {
+            
+        }
+        
+        func readerSession(_ session: NFCNDEFReaderSession, didDetectNDEFs messages: [NFCNDEFMessage]) {
+            guard
+                let nfcMess = messages.first,
+                let record = nfcMess.records.first,
+                record.typeNameFormat == .absoluteURI || record.typeNameFormat == .nfcWellKnown,
+                let payload = String(data: record.payload, encoding: .utf8)
+                    
+            else {
+                return
+            }
+            
+            print(payload)
+            self.data = payload
+        }
+        
+        func readerSession(_ session: NFCNDEFReaderSession, didInvalidateWithError error: Error) {
+            if let readerError = error as? NFCReaderError {
+                if readerError.code != .readerSessionInvalidationErrorFirstNDEFTagRead && readerError.code != .readerSessionInvalidationErrorUserCanceled {
+                    print("Error: \(readerError.localizedDescription)")
+                }
+            }
+            
+            self.session = nil
+        }
     }
 }
+
 
 struct ScanView_Previews: PreviewProvider {
     static var previews: some View {
