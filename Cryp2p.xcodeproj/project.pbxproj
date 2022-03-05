@@ -15,6 +15,9 @@
 		902316B127C1546500651CAF /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902316B027C1546500651CAF /* OnboardingView.swift */; };
 		902316B427C154A700651CAF /* ContentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902316B327C154A700651CAF /* ContentModel.swift */; };
 		902316B627C1563E00651CAF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 902316B527C1563E00651CAF /* LaunchScreen.storyboard */; };
+		902AE82227D3EF50007E8CBD /* CoinType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902AE82127D3EF50007E8CBD /* CoinType.swift */; };
+		902AE82427D3EFF6007E8CBD /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902AE82327D3EFF6007E8CBD /* Coin.swift */; };
+		902AE82627D3F04F007E8CBD /* CoinCapPriceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902AE82527D3F04F007E8CBD /* CoinCapPriceService.swift */; };
 		9043CBAF27C555B60096F5BF /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = 9043CBAE27C555B60096F5BF /* CodeScanner */; };
 		90453AD427D355EB004117A6 /* Solana in Frameworks */ = {isa = PBXBuildFile; productRef = 90453AD327D355EB004117A6 /* Solana */; };
 		908B7E2D27C15E8500CB3473 /* LabelStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B7E2C27C15E8500CB3473 /* LabelStyles.swift */; };
@@ -50,6 +53,9 @@
 		902316B027C1546500651CAF /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		902316B327C154A700651CAF /* ContentModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentModel.swift; sourceTree = "<group>"; };
 		902316B527C1563E00651CAF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = LaunchScreen.storyboard; sourceTree = "<group>"; };
+		902AE82127D3EF50007E8CBD /* CoinType.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinType.swift; sourceTree = "<group>"; };
+		902AE82327D3EFF6007E8CBD /* Coin.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coin.swift; sourceTree = "<group>"; };
+		902AE82527D3F04F007E8CBD /* CoinCapPriceService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoinCapPriceService.swift; sourceTree = "<group>"; };
 		908B7E2C27C15E8500CB3473 /* LabelStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelStyles.swift; sourceTree = "<group>"; };
 		908B7E2E27C1605C00CB3473 /* SendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendView.swift; sourceTree = "<group>"; };
 		908B7E3027C160B200CB3473 /* ReceiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiveView.swift; sourceTree = "<group>"; };
@@ -197,6 +203,9 @@
 			isa = PBXGroup;
 			children = (
 				908B7E4327C3992000CB3473 /* PriceTracker.swift */,
+				902AE82527D3F04F007E8CBD /* CoinCapPriceService.swift */,
+				902AE82127D3EF50007E8CBD /* CoinType.swift */,
+				902AE82327D3EFF6007E8CBD /* Coin.swift */,
 			);
 			path = SolanaPrice;
 			sourceTree = "<group>";
@@ -310,12 +319,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				902AE82427D3EFF6007E8CBD /* Coin.swift in Sources */,
 				908B7E4227C398C900CB3473 /* WalletManager.swift in Sources */,
 				90D54F1827CE0E280018F58A /* AddWalletSheet.swift in Sources */,
 				902316AE27C1544900651CAF /* HomeView.swift in Sources */,
 				902316B127C1546500651CAF /* OnboardingView.swift in Sources */,
 				908B7E3827C16EE900CB3473 /* WalletView.swift in Sources */,
+				902AE82227D3EF50007E8CBD /* CoinType.swift in Sources */,
 				908B7E3127C160B200CB3473 /* ReceiveView.swift in Sources */,
+				902AE82627D3F04F007E8CBD /* CoinCapPriceService.swift in Sources */,
 				908B7E4027C29C8000CB3473 /* WalletManagerSheet.swift in Sources */,
 				902316B427C154A700651CAF /* ContentModel.swift in Sources */,
 				9023169C27C1513300651CAF /* Cryp2pApp.swift in Sources */,
