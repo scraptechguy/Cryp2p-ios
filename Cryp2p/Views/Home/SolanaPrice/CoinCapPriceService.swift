@@ -14,11 +14,13 @@ class CoinCapPriceService: NSObject {
     private var wsTask: URLSessionWebSocketTask?
     private var pingTryCount = 0
     
-    private let coinDictionarySubject = CurrentValueSubject<[String: Coin], Never> ([:])
-    private var coinDictionary: [String: Coin] {coinDictionarySubject.value}
+    let coinDictionarySubject = CurrentValueSubject<[String: Coin], Never> ([:])
+    var coinDictionary: [String: Coin] {coinDictionarySubject.value}
     
-    private let connectionStateSubject = CurrentValueSubject<Bool, Never> (false)
-    private var isConnected: Bool {connectionStateSubject.value}
+    let connectionStateSubject = CurrentValueSubject<Bool, Never> (false)
+    var isConnected: Bool {connectionStateSubject.value}
+    
+    private let monitor = NWPathMonitor()
     
     
     func connect() {
@@ -32,6 +34,24 @@ class CoinCapPriceService: NSObject {
         wsTask?.resume()
         
         self.receiveMessage()
+        self.schedulePing()
+    }
+    
+    
+    func startMonitorNetworkConnectivity() {
+        monitor.pathUpdateHandler = {[weak self] path in
+            guard let self = self else {return}
+            
+            if path.status == .satisfied, self.wsTask == nil {
+                self.connect()
+            }
+            
+            if path.status != .satisfied {
+                self.clearConnection()
+            }
+        }
+        
+        monitor.start(queue: .main)
     }
     
     

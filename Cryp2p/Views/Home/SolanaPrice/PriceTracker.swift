@@ -12,8 +12,6 @@ struct PriceTracker: View {
     
     @EnvironmentObject var model: ContentModel
     
-    var price: String = "89.45"
-    
     var body: some View {
         VStack {
             ZStack {
@@ -23,7 +21,7 @@ struct PriceTracker: View {
                     .cornerRadius(model.screenSize.width / 15)
                     
                 HStack {
-                    Text("$\(price)")
+                    Text(model.value)
                         .foregroundColor(model.fontClr)
                         .font(.system(size: model.screenSize.width / 12))
                     
@@ -35,7 +33,10 @@ struct PriceTracker: View {
             }
             
             Spacer()
-        }.ignoresSafeArea()
+        }.onAppear {
+            model.subscribeToService()
+        }
+        .ignoresSafeArea()
     }
 }
 
