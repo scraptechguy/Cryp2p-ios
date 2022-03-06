@@ -12,6 +12,7 @@ import Network
 class CoinCapPriceService: NSObject {
     private let session = URLSession(configuration: .default)
     private var wsTask: URLSessionWebSocketTask?
+    private var pingTryCount = 0
     
     private let coinDictionarySubject = CurrentValueSubject<[String: Coin], Never> ([:])
     private var coinDictionary: [String: Coin] {coinDictionarySubject.value}
@@ -29,6 +30,7 @@ class CoinCapPriceService: NSObject {
         wsTask = session.webSocketTask(with: url)
         wsTask?.delegate = self
         wsTask?.resume()
+        
         self.receiveMessage()
     }
     
@@ -36,27 +38,28 @@ class CoinCapPriceService: NSObject {
     private func receiveMessage() {
         wsTask?.receive { [weak self] result in
             guard let self = self else {return}
-                switch result {
-                    case .success(let message):
-                        switch message {
-                            case .string(let text):
-                                print("Received data: \(text)")
-                                if let data = text.data(using: .utf8) {
-                                    self.onReceiveData(data)
-                                }
-                            
-                            case .data(let data):
+            
+            switch result {
+                case .success(let message):
+                    switch message {
+                        case .string(let text):
+                            print("Received data: \(text)")
+                            if let data = text.data(using: .utf8) {
                                 self.onReceiveData(data)
-                            
-                            default:
-                                break
-                        }
+                            }
                         
-                        self.receiveMessage()
+                        case .data(let data):
+                            self.onReceiveData(data)
                         
-                    case .failure(let error):
-                        print("Failed to receive message\(error.localizedDescription)")
-                }
+                        default:
+                            break
+                    }
+                    
+                    self.receiveMessage()
+                    
+                case .failure(let error):
+                    print("Failed to receive message\(error.localizedDescription)")
+            }
         }
     }
     
@@ -75,6 +78,51 @@ class CoinCapPriceService: NSObject {
     }
     
     
+    private func schedulePing() {
+        let identifier = self.wsTask?.taskIdentifier ?? -1
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 5) { [weak self] in
+            guard let self = self, let task = self.wsTask,
+                  task.taskIdentifier == identifier
+            
+            else {
+                return
+            }
+            
+            if task.state == .running, self.pingTryCount < 2 {
+                self.pingTryCount += 1
+                
+                task.sendPing {[weak self] error in
+                    if let error = error {
+                        print("Ping failed: \(error.localizedDescription)")
+                    } else if self?.wsTask?.taskIdentifier == identifier {
+                        self?.pingTryCount = 0
+                    }
+                }
+                
+                self.schedulePing()
+            } else {
+                self.reconnect()
+            }
+        }
+    }
+    
+    
+    private func reconnect() {
+        self.clearConnection()
+        self.connect()
+    }
+    
+    
+    func clearConnection() {
+        self.wsTask?.cancel()
+        self.wsTask = nil
+        self.pingTryCount = 0
+        
+        self.connectionStateSubject.send(false)
+    }
+    
+    
     deinit {
         coinDictionarySubject.send(completion: .finished)
         connectionStateSubject.send(completion: .finished)
@@ -83,10 +131,10 @@ class CoinCapPriceService: NSObject {
 
 extension CoinCapPriceService: URLSessionWebSocketDelegate {
     func urlSession(_ session: URLSession, webSocketTask: URLSessionWebSocketTask, didOpenWithProtocol protocol: String?) {
-        
+        self.connectionStateSubject.send(true)
     }
     
     func urlSession(_ session: URLSession, webSocketTask: URLSessionWebSocketTask, didCloseWith closeCode: URLSessionWebSocketTask.CloseCode, reason: Data?) {
-        
+        self.connectionStateSubject.send(false)
     }
 }
