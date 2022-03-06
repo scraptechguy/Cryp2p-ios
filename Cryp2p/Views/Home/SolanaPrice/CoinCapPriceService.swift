@@ -32,6 +32,20 @@ class CoinCapPriceService: NSObject {
     }
     
     
+    private func receiveMessage() {
+        wsTask?.receive { [weak self] result in
+            guard let self = self else {return}
+            switch result {
+                case .success(let message):
+                    break
+                    
+                case .failure(let error):
+                    print("Failed to receive message\(error.localizedDescription)")
+                }
+        }
+    }
+    
+    
     deinit {
         coinDictionarySubject.send(completion: .finished)
         connectionStateSubject.send(completion: .finished)
