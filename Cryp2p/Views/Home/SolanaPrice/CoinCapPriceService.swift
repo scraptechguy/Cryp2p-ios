@@ -111,6 +111,7 @@ class CoinCapPriceService: NSObject {
             
             if task.state == .running, self.pingTryCount < 2 {
                 self.pingTryCount += 1
+                print("Ping sent")
                 
                 task.sendPing {[weak self] error in
                     if let error = error {
