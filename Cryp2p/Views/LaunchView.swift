@@ -14,6 +14,7 @@ struct LaunchView: View {
     
     var body: some View {
         HomeView()
+            .onAppear(perform: model.setupCoinCapService)
     }
 }
 

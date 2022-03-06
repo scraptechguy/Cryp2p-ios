@@ -29,20 +29,49 @@ class CoinCapPriceService: NSObject {
         wsTask = session.webSocketTask(with: url)
         wsTask?.delegate = self
         wsTask?.resume()
+        self.receiveMessage()
     }
     
     
     private func receiveMessage() {
         wsTask?.receive { [weak self] result in
             guard let self = self else {return}
-            switch result {
-                case .success(let message):
-                    break
-                    
-                case .failure(let error):
-                    print("Failed to receive message\(error.localizedDescription)")
+                switch result {
+                    case .success(let message):
+                        switch message {
+                            case .string(let text):
+                                print("Received data: \(text)")
+                                if let data = text.data(using: .utf8) {
+                                    self.onReceiveData(data)
+                                }
+                            
+                            case .data(let data):
+                                self.onReceiveData(data)
+                            
+                            default:
+                                break
+                        }
+                        
+                        self.receiveMessage()
+                        
+                    case .failure(let error):
+                        print("Failed to receive message\(error.localizedDescription)")
                 }
         }
+    }
+    
+    
+    private func onReceiveData(_ data: Data) {
+        guard let dictionary = try? JSONSerialization.jsonObject(with: data) as? [String:String] else {return}
+        
+        var newDictionary = [String:Coin]()
+        dictionary.forEach {(key, value) in
+            let value = Double(value) ?? 0
+            newDictionary[key] = Coin(name: key.capitalized, value: value)
+        }
+        
+        let mergedDictionary = coinDictionary.merging(newDictionary) {old, new in new}
+        coinDictionarySubject.send(mergedDictionary)
     }
     
     
