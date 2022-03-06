@@ -33,16 +33,6 @@
 		90D54F1827CE0E280018F58A /* AddWalletSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D54F1727CE0E280018F58A /* AddWalletSheet.swift */; };
 /* End PBXBuildFile section */
 
-/* Begin PBXContainerItemProxy section */
-		90B251A827CAEF400076504F /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 9023169027C1513300651CAF /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 9023169727C1513300651CAF;
-			remoteInfo = Cryp2p;
-		};
-/* End PBXContainerItemProxy section */
-
 /* Begin PBXFileReference section */
 		9023169827C1513300651CAF /* Cryp2p.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Cryp2p.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9023169B27C1513300651CAF /* Cryp2pApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Cryp2pApp.swift; sourceTree = "<group>"; };
@@ -67,7 +57,6 @@
 		908B7E3F27C29C8000CB3473 /* WalletManagerSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletManagerSheet.swift; sourceTree = "<group>"; };
 		908B7E4127C398C900CB3473 /* WalletManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletManager.swift; sourceTree = "<group>"; };
 		908B7E4327C3992000CB3473 /* PriceTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceTracker.swift; sourceTree = "<group>"; };
-		90B251A427CAEF400076504F /* Cryp2pTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Cryp2pTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		90D54F1727CE0E280018F58A /* AddWalletSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWalletSheet.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -78,13 +67,6 @@
 			files = (
 				90453AD427D355EB004117A6 /* Solana in Frameworks */,
 				9043CBAF27C555B60096F5BF /* CodeScanner in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		90B251A127CAEF400076504F /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,7 +85,6 @@
 			isa = PBXGroup;
 			children = (
 				9023169827C1513300651CAF /* Cryp2p.app */,
-				90B251A427CAEF400076504F /* Cryp2pTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -234,24 +215,6 @@
 			productReference = 9023169827C1513300651CAF /* Cryp2p.app */;
 			productType = "com.apple.product-type.application";
 		};
-		90B251A327CAEF400076504F /* Cryp2pTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 90B251AC27CAEF400076504F /* Build configuration list for PBXNativeTarget "Cryp2pTests" */;
-			buildPhases = (
-				90B251A027CAEF400076504F /* Sources */,
-				90B251A127CAEF400076504F /* Frameworks */,
-				90B251A227CAEF400076504F /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				90B251A927CAEF400076504F /* PBXTargetDependency */,
-			);
-			name = Cryp2pTests;
-			productName = Cryp2pTests;
-			productReference = 90B251A427CAEF400076504F /* Cryp2pTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -264,10 +227,6 @@
 				TargetAttributes = {
 					9023169727C1513300651CAF = {
 						CreatedOnToolsVersion = 13.2.1;
-					};
-					90B251A327CAEF400076504F = {
-						CreatedOnToolsVersion = 13.2.1;
-						TestTargetID = 9023169727C1513300651CAF;
 					};
 				};
 			};
@@ -289,7 +248,6 @@
 			projectRoot = "";
 			targets = (
 				9023169727C1513300651CAF /* Cryp2p */,
-				90B251A327CAEF400076504F /* Cryp2pTests */,
 			);
 		};
 /* End PBXProject section */
@@ -302,13 +260,6 @@
 				902316B627C1563E00651CAF /* LaunchScreen.storyboard in Resources */,
 				902316A327C1513400651CAF /* Preview Assets.xcassets in Resources */,
 				902316A027C1513400651CAF /* Assets.xcassets in Resources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		90B251A227CAEF400076504F /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,22 +292,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		90B251A027CAEF400076504F /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXSourcesBuildPhase section */
-
-/* Begin PBXTargetDependency section */
-		90B251A927CAEF400076504F /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 9023169727C1513300651CAF /* Cryp2p */;
-			targetProxy = 90B251A827CAEF400076504F /* PBXContainerItemProxy */;
-		};
-/* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
 		902316A427C1513400651CAF /* Debug */ = {
@@ -543,42 +479,6 @@
 			};
 			name = Release;
 		};
-		90B251AA27CAEF400076504F /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = H4NW3RCM58;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = fifarosta.Cryp2pTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Cryp2p.app/Cryp2p";
-			};
-			name = Debug;
-		};
-		90B251AB27CAEF400076504F /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				BUNDLE_LOADER = "$(TEST_HOST)";
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = H4NW3RCM58;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = fifarosta.Cryp2pTests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Cryp2p.app/Cryp2p";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -596,15 +496,6 @@
 			buildConfigurations = (
 				902316A727C1513400651CAF /* Debug */,
 				902316A827C1513400651CAF /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		90B251AC27CAEF400076504F /* Build configuration list for PBXNativeTarget "Cryp2pTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				90B251AA27CAEF400076504F /* Debug */,
-				90B251AB27CAEF400076504F /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
