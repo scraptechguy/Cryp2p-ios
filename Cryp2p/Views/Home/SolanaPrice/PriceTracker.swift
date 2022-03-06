@@ -14,23 +14,27 @@ struct PriceTracker: View {
     
     var body: some View {
         VStack {
-            ZStack {
-                Rectangle()
-                    .fill(model.bgDark)
-                    .frame(width: model.screenSize.width, height: model.screenSize.width / 3.3)
-                    .cornerRadius(model.screenSize.width / 15)
-                    
-                HStack {
-                    Text(model.value)
-                        .foregroundColor(model.fontClr)
-                        .font(.system(size: model.screenSize.width / 12))
-                    
-                    Text("/ SOL")
-                        .foregroundColor(model.buttonClrObscure)
-                        .font(.system(size: model.screenSize.width / 18))
-                }.padding([.top], model.screenSize.width / 13)
-                    .frame(width: model.screenSize.width / 1.3, alignment: .leading)
-            }
+            Button(action: {
+                
+                }, label: {
+                    ZStack {
+                        Rectangle()
+                            .fill(model.bgDark)
+                            .frame(width: model.screenSize.width, height: model.screenSize.width / 3.3)
+                            .cornerRadius(model.screenSize.width / 15)
+                            
+                        HStack {
+                            Text(model.value)
+                                .foregroundColor(model.fontClr)
+                                .font(.system(size: model.screenSize.width / 12))
+                            
+                            Text("/ SOL")
+                                .foregroundColor(model.buttonClrObscure)
+                                .font(.system(size: model.screenSize.width / 18))
+                        }.padding([.top], model.screenSize.width / 13)
+                            .frame(width: model.screenSize.width / 1.3, alignment: .leading)
+                    }
+            })
             
             Spacer()
         }.onAppear {
