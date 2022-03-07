@@ -93,7 +93,7 @@ class CoinCapPriceService: NSObject {
             newDictionary[key] = Coin(name: key.capitalized, value: value)
         }
         
-        let mergedDictionary = coinDictionary.merging(newDictionary) {old, new in new}
+        let mergedDictionary = coinDictionary.merging(newDictionary) {$1}
         coinDictionarySubject.send(mergedDictionary)
     }
     

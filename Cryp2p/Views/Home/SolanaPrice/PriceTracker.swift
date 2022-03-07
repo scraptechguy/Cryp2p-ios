@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import Combine
 
 struct PriceTracker: View {
     // Access data in ContentModel.swift
@@ -37,7 +38,11 @@ struct PriceTracker: View {
             })
             
             Spacer()
-        }.onAppear {
+        }.onChange(of: model.value) { _ in
+            print("value changed")
+            model.updateView()
+        }
+        .onAppear {
             model.subscribeToService()
         }
         .ignoresSafeArea()
