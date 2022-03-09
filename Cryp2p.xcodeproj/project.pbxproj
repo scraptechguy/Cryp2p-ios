@@ -25,6 +25,12 @@
 		90398A8D27D8C07000A8FB29 /* Widgets.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 90398A8927D8C06F00A8FB29 /* Widgets.intentdefinition */; };
 		90398A8E27D8C07000A8FB29 /* Widgets.intentdefinition in Sources */ = {isa = PBXBuildFile; fileRef = 90398A8927D8C06F00A8FB29 /* Widgets.intentdefinition */; };
 		90398A9127D8C07000A8FB29 /* WidgetsExtension.appex in Embed App Extensions */ = {isa = PBXBuildFile; fileRef = 90398A8027D8C06F00A8FB29 /* WidgetsExtension.appex */; settings = {ATTRIBUTES = (RemoveHeadersOnCopy, ); }; };
+		90398A9D27D8C18300A8FB29 /* QRWidgetSmall.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90398A9C27D8C18300A8FB29 /* QRWidgetSmall.swift */; };
+		90398AA727D8D09900A8FB29 /* ContentModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902316B327C154A700651CAF /* ContentModel.swift */; };
+		90398AA827D8D0D300A8FB29 /* CoinCapPriceService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902AE82527D3F04F007E8CBD /* CoinCapPriceService.swift */; };
+		90398AA927D8D0DF00A8FB29 /* CoinType.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902AE82127D3EF50007E8CBD /* CoinType.swift */; };
+		90398AAA27D8D0E200A8FB29 /* Coin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 902AE82327D3EFF6007E8CBD /* Coin.swift */; };
+		90398AAB27D8D11800A8FB29 /* QRWidgetEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90398A9927D8C13800A8FB29 /* QRWidgetEntryView.swift */; };
 		9043CBAF27C555B60096F5BF /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = 9043CBAE27C555B60096F5BF /* CodeScanner */; };
 		90453AD427D355EB004117A6 /* Solana in Frameworks */ = {isa = PBXBuildFile; productRef = 90453AD327D355EB004117A6 /* Solana */; };
 		908B7E2D27C15E8500CB3473 /* LabelStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B7E2C27C15E8500CB3473 /* LabelStyles.swift */; };
@@ -84,6 +90,9 @@
 		90398A8927D8C06F00A8FB29 /* Widgets.intentdefinition */ = {isa = PBXFileReference; lastKnownFileType = file.intentdefinition; path = Widgets.intentdefinition; sourceTree = "<group>"; };
 		90398A8A27D8C07000A8FB29 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		90398A8C27D8C07000A8FB29 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		90398A9927D8C13800A8FB29 /* QRWidgetEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRWidgetEntryView.swift; sourceTree = "<group>"; };
+		90398A9C27D8C18300A8FB29 /* QRWidgetSmall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRWidgetSmall.swift; sourceTree = "<group>"; };
+		90398AA327D8CC9100A8FB29 /* Cryp2p.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Cryp2p.entitlements; sourceTree = "<group>"; };
 		908B7E2C27C15E8500CB3473 /* LabelStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelStyles.swift; sourceTree = "<group>"; };
 		908B7E2E27C1605C00CB3473 /* SendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendView.swift; sourceTree = "<group>"; };
 		908B7E3027C160B200CB3473 /* ReceiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiveView.swift; sourceTree = "<group>"; };
@@ -142,6 +151,7 @@
 		9023169A27C1513300651CAF /* Cryp2p */ = {
 			isa = PBXGroup;
 			children = (
+				90398AA327D8CC9100A8FB29 /* Cryp2p.entitlements */,
 				908B7E3C27C2565000CB3473 /* Info.plist */,
 				9023169B27C1513300651CAF /* Cryp2pApp.swift */,
 				908B7E2B27C15E7100CB3473 /* Helpers */,
@@ -217,8 +227,18 @@
 				90398A8927D8C06F00A8FB29 /* Widgets.intentdefinition */,
 				90398A8A27D8C07000A8FB29 /* Assets.xcassets */,
 				90398A8C27D8C07000A8FB29 /* Info.plist */,
+				90398A9627D8C10A00A8FB29 /* QRWidget */,
 			);
 			path = Widgets;
+			sourceTree = "<group>";
+		};
+		90398A9627D8C10A00A8FB29 /* QRWidget */ = {
+			isa = PBXGroup;
+			children = (
+				90398A9927D8C13800A8FB29 /* QRWidgetEntryView.swift */,
+				90398A9C27D8C18300A8FB29 /* QRWidgetSmall.swift */,
+			);
+			path = QRWidget;
 			sourceTree = "<group>";
 		};
 		908B7E2B27C15E7100CB3473 /* Helpers */ = {
@@ -399,7 +419,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				90398A8D27D8C07000A8FB29 /* Widgets.intentdefinition in Sources */,
+				90398AA827D8D0D300A8FB29 /* CoinCapPriceService.swift in Sources */,
+				90398AA927D8D0DF00A8FB29 /* CoinType.swift in Sources */,
+				90398AA727D8D09900A8FB29 /* ContentModel.swift in Sources */,
+				90398A9D27D8C18300A8FB29 /* QRWidgetSmall.swift in Sources */,
 				90398A8827D8C06F00A8FB29 /* Widgets.swift in Sources */,
+				90398AAB27D8D11800A8FB29 /* QRWidgetEntryView.swift in Sources */,
+				90398AAA27D8D0E200A8FB29 /* Coin.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -536,6 +562,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Cryp2p/Cryp2p.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Cryp2p/Preview Content\"";
@@ -571,6 +598,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = Cryp2p/Cryp2p.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Cryp2p/Preview Content\"";

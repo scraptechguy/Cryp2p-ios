@@ -19,7 +19,7 @@ struct Provider: IntentTimelineProvider {
         completion(entry)
     }
 
-    func getTimeline(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (Timeline<Entry>) -> ()) {
+    func getTimeline(for configuration: ConfigurationIntent, in context: Context, completion: @escaping (Timeline<SimpleEntry>) -> ()) {
         var entries: [SimpleEntry] = []
 
         // Generate a timeline consisting of five entries an hour apart, starting from the current date.
@@ -48,22 +48,27 @@ struct WidgetsEntryView : View {
     }
 }
 
-@main
-struct Widgets: Widget {
-    let kind: String = "Widgets"
+
+struct QRWidget: Widget {
+    let kind: String = "LunchWidget"
 
     var body: some WidgetConfiguration {
         IntentConfiguration(kind: kind, intent: ConfigurationIntent.self, provider: Provider()) { entry in
-            WidgetsEntryView(entry: entry)
+            QRWidgetEntryView(entry: entry)
         }
-        .configurationDisplayName("My Widget")
-        .description("This is an example widget.")
+        .configurationDisplayName("Lunch Widget")
+        .description("This little guy let's you view your lunches on your Home Screen.")
+        .supportedFamilies([.systemSmall])
     }
 }
 
-struct Widgets_Previews: PreviewProvider {
-    static var previews: some View {
-        WidgetsEntryView(entry: SimpleEntry(date: Date(), configuration: ConfigurationIntent()))
-            .previewContext(WidgetPreviewContext(family: .systemSmall))
+
+// MARK: @main
+
+@main
+struct StuduWidgetsBundle: WidgetBundle {
+    @WidgetBundleBuilder
+    var body: some Widget {
+        QRWidget()
     }
 }
