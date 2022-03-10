@@ -22,7 +22,9 @@ Click <a href="https://youtu.be/dQw4w9WgXcQ">here</a> or use the Redeem Code: <b
 
 ## Groundwork
 
-+ We're using [CodeScanner](https://github.com/twostraws/CodeScanner) Xcode package to scan QR codes
+We're using 
++ [CodeScanner](https://github.com/twostraws/CodeScanner) Xcode package to scan QR codes
++ [Swift.Solana](https://github.com/ajamaica/Solana.Swift) package to handle Solana transactions
 
 
 ## Why?
