@@ -38,12 +38,12 @@ struct PriceTracker: View {
             })
             
             Spacer()
-        }.onChange(of: model.value) { _ in
+        }.onAppear {
+            model.subscribeToService()
+        }
+        .onChange(of: model.value) { _ in
             print("value changed")
             model.updateView()
-        }
-        .onAppear {
-            model.subscribeToService()
         }
         .ignoresSafeArea()
     }
