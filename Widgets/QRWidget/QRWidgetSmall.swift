@@ -18,16 +18,22 @@ struct QRWidgetSmall: View {
     
     let context = CIContext()
     let filter = CIFilter.qrCodeGenerator()
+    @State var image = UIImage()
     
     var body: some View {
         ZStack {
             model.fontClr.ignoresSafeArea()
             
-            Image(uiImage: generateQRCode(from: model.addresses[model.primary]))
+            Image(uiImage: image)
                 .resizable()
                 .interpolation(.none)
                 .scaledToFit()
                 .frame(width: model.screenSize.width / 3, height: model.screenSize.width / 3)
+        }.onAppear {
+            image = generateQRCode(from: model.addresses[model.primary])
+        }
+        .onChange(of: model.primary) { _ in
+            image = generateQRCode(from: model.addresses[model.primary])
         }
     }
     
