@@ -50,14 +50,14 @@ struct WidgetsEntryView : View {
 
 
 struct QRWidget: Widget {
-    let kind: String = "LunchWidget"
+    let kind: String = "QR Code Widget"
 
     var body: some WidgetConfiguration {
         IntentConfiguration(kind: kind, intent: ConfigurationIntent.self, provider: Provider()) { entry in
             QRWidgetEntryView(entry: entry)
         }
-        .configurationDisplayName("Lunch Widget")
-        .description("This little guy let's you view your lunches on your Home Screen.")
+        .configurationDisplayName("QR Code Widget")
+        .description("Widget that displays QR code of primary Solana address picked by you")
         .supportedFamilies([.systemSmall])
     }
 }
