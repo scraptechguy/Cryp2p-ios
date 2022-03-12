@@ -16,7 +16,7 @@ struct PriceTracker: View {
     var body: some View {
         VStack {
             Button(action: {
-                
+
                 }, label: {
                     ZStack {
                         Rectangle()
