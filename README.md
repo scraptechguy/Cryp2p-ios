@@ -2,7 +2,7 @@
 
 Cryp2p is a Solana-based iOS native app that's focused on improving user experience of real-life crypto transactions. To achieve that, we use QR code system and NFC. 
 
-![Cp2pPreview](https://user-images.githubusercontent.com/75474651/155742529-25b0030b-562c-4f92-9486-650c67cc4f31.png)
+![Cryp2pPreviewHome](https://user-images.githubusercontent.com/75474651/158024017-8b259910-2a44-4d22-827e-ada654336d87.png)
 
 
 ## Cryp2p status
