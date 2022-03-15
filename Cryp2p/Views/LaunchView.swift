@@ -13,10 +13,14 @@ struct LaunchView: View {
     @EnvironmentObject var model: ContentModel
     
     var body: some View {
-        HomeView()
-            .onAppear {
-                model.setupCoinCapService()
-            }
+        if model.onboardingShown {
+            HomeView()
+                .onAppear {
+                    PriceTrackerViewModel().setupCoinCapService()
+                }
+        } else {
+            OnboardingView()
+        }
     }
 }
 

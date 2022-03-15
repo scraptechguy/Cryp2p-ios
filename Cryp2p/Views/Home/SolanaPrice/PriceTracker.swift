@@ -12,6 +12,7 @@ struct PriceTracker: View {
     // Access data in ContentModel.swift
     
     @EnvironmentObject var model: ContentModel
+    @ObservedObject var priceTrackerModel: PriceTrackerViewModel
     
     var body: some View {
         VStack {
@@ -25,7 +26,7 @@ struct PriceTracker: View {
                             .cornerRadius(model.screenSize.width / 15)
                             
                         HStack {
-                            Text(model.value)
+                            Text(priceTrackerModel.value)
                                 .foregroundColor(model.fontClr)
                                 .font(.system(size: model.screenSize.width / 12))
                             
@@ -39,11 +40,11 @@ struct PriceTracker: View {
             
             Spacer()
         }.onAppear {
-            model.subscribeToService()
+            priceTrackerModel.subscribeToService()
         }
-        .onChange(of: model.value) { _ in
+        .onChange(of: priceTrackerModel.value) { _ in
             print("value changed")
-            model.updateView()
+            priceTrackerModel.updateView()
         }
         .ignoresSafeArea()
     }
@@ -51,7 +52,7 @@ struct PriceTracker: View {
 
 struct PriceTracker_Previews: PreviewProvider {
     static var previews: some View {
-        PriceTracker()
+        PriceTracker(priceTrackerModel: .init(name: PriceTrackerViewModel().name, value: PriceTrackerViewModel().value))
             .environmentObject(ContentModel())
     }
 }

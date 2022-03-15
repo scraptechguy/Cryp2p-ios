@@ -9,7 +9,7 @@ import Foundation
 
 enum CoinType: String, Identifiable, CaseIterable {
     case ethereum
-    case solana
+    //case solana
     
     var id: Self {self}
     var url: URL {URL(string: "https://coincap.io/assets/\(rawValue)")!}

@@ -28,6 +28,7 @@ class ContentModel: ObservableObject {
     
     // MARK: State variables
     
+    @AppStorage("onboardingShown") var onboardingShown: Bool = false
     @Published var viewShown: Int = 0
     @AppStorage("primaryAddress") var primary: Int = 0
     @Published var showingWalletManagerSheet: Bool = false
@@ -37,14 +38,14 @@ class ContentModel: ObservableObject {
     @Published var phrase: String = ""
     @Published var addresses: [String] = ["0x709Cd5F1A1107eD1c4e00A42B349A22701Bebb86", "57xndEKxm8hjinu81YAzakxWiC2u7AxS7rZyC2y2KfDC"]
     @Published var nicknames: [String] = ["FífaRosťa", "RosťaFífa"]
-    
-    
-    // MARK: Coin Cap service
-    
+}
+
+
+class PriceTrackerViewModel: ObservableObject {
     @Published private(set) var name: String
     @Published private(set) var value: String
     @Published private(set) var service: CoinCapPriceService
-    @AppStorage("SelectedCoin") var selectedCoinType = CoinType.solana
+    @AppStorage("SelectedCoin") var selectedCoinType = CoinType.ethereum
     
     let coinCapService = CoinCapPriceService()
     private var subscriptions = Set<AnyCancellable>()

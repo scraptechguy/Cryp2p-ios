@@ -8,13 +8,23 @@
 import SwiftUI
 
 struct OnboardingView: View {
+    // Access data in ContentModel.swift
+    
+    @EnvironmentObject var model: ContentModel
+    
     var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
+        Button(action: {
+                model.onboardingShown = true
+            }, label: {
+                Text("Done")
+                    .font(.system(size: model.screenSize.width / 8))
+        })
     }
 }
 
 struct OnboardingView_Previews: PreviewProvider {
     static var previews: some View {
         OnboardingView()
+            .environmentObject(ContentModel())
     }
 }

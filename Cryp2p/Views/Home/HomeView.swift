@@ -9,6 +9,8 @@ import SwiftUI
 import CoreImage
 import CoreImage.CIFilterBuiltins
 import CodeScanner
+import Combine
+import Network
 
 struct HomeView: View {
     // Access data in ContentModel.swift
@@ -48,7 +50,7 @@ struct HomeView: View {
             
             // MARK: Price tracker
             
-            PriceTracker()
+            PriceTracker(priceTrackerModel: .init(name: PriceTrackerViewModel().name, value: PriceTrackerViewModel().value))
         }.preferredColorScheme(.dark)
     }
 }
