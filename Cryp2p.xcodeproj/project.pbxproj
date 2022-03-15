@@ -33,7 +33,6 @@
 		90398AAB27D8D11800A8FB29 /* QRWidgetEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90398A9927D8C13800A8FB29 /* QRWidgetEntryView.swift */; };
 		9043CBAF27C555B60096F5BF /* CodeScanner in Frameworks */ = {isa = PBXBuildFile; productRef = 9043CBAE27C555B60096F5BF /* CodeScanner */; };
 		90453AD427D355EB004117A6 /* Solana in Frameworks */ = {isa = PBXBuildFile; productRef = 90453AD327D355EB004117A6 /* Solana */; };
-		9058DF0E27E0986B00D985D8 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9058DF0D27E0986B00D985D8 /* AppDelegate.swift */; };
 		908B7E2D27C15E8500CB3473 /* LabelStyles.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B7E2C27C15E8500CB3473 /* LabelStyles.swift */; };
 		908B7E2F27C1605C00CB3473 /* SendView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B7E2E27C1605C00CB3473 /* SendView.swift */; };
 		908B7E3127C160B200CB3473 /* ReceiveView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B7E3027C160B200CB3473 /* ReceiveView.swift */; };
@@ -94,7 +93,6 @@
 		90398A9927D8C13800A8FB29 /* QRWidgetEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRWidgetEntryView.swift; sourceTree = "<group>"; };
 		90398A9C27D8C18300A8FB29 /* QRWidgetSmall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QRWidgetSmall.swift; sourceTree = "<group>"; };
 		90398AA327D8CC9100A8FB29 /* Cryp2p.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Cryp2p.entitlements; sourceTree = "<group>"; };
-		9058DF0D27E0986B00D985D8 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		908B7E2C27C15E8500CB3473 /* LabelStyles.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LabelStyles.swift; sourceTree = "<group>"; };
 		908B7E2E27C1605C00CB3473 /* SendView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendView.swift; sourceTree = "<group>"; };
 		908B7E3027C160B200CB3473 /* ReceiveView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReceiveView.swift; sourceTree = "<group>"; };
@@ -156,7 +154,6 @@
 				90398AA327D8CC9100A8FB29 /* Cryp2p.entitlements */,
 				908B7E3C27C2565000CB3473 /* Info.plist */,
 				9023169B27C1513300651CAF /* Cryp2pApp.swift */,
-				9058DF0D27E0986B00D985D8 /* AppDelegate.swift */,
 				908B7E2B27C15E7100CB3473 /* Helpers */,
 				902316AC27C1543B00651CAF /* Views */,
 				908B7E3427C16D4800CB3473 /* SheetViews */,
@@ -412,7 +409,6 @@
 				908B7E3A27C16EF600CB3473 /* SettingsView.swift in Sources */,
 				908B7E4427C3992000CB3473 /* PriceTracker.swift in Sources */,
 				908B7E2F27C1605C00CB3473 /* SendView.swift in Sources */,
-				9058DF0E27E0986B00D985D8 /* AppDelegate.swift in Sources */,
 				902316AA27C1542D00651CAF /* LaunchView.swift in Sources */,
 				908B7E3E27C296FA00CB3473 /* NavigationBar.swift in Sources */,
 			);
