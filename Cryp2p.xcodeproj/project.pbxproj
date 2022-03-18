@@ -44,6 +44,7 @@
 		908B7E4227C398C900CB3473 /* WalletManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B7E4127C398C900CB3473 /* WalletManager.swift */; };
 		908B7E4427C3992000CB3473 /* PriceTracker.swift in Sources */ = {isa = PBXBuildFile; fileRef = 908B7E4327C3992000CB3473 /* PriceTracker.swift */; };
 		90D54F1827CE0E280018F58A /* AddWalletSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = 90D54F1727CE0E280018F58A /* AddWalletSheet.swift */; };
+		DC08932A27E51CE3005A547D /* ExternalAccessory.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DC08932927E51CE3005A547D /* ExternalAccessory.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +106,8 @@
 		908B7E4127C398C900CB3473 /* WalletManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WalletManager.swift; sourceTree = "<group>"; };
 		908B7E4327C3992000CB3473 /* PriceTracker.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PriceTracker.swift; sourceTree = "<group>"; };
 		90D54F1727CE0E280018F58A /* AddWalletSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWalletSheet.swift; sourceTree = "<group>"; };
+		DC08932827E51CE3005A547D /* WidgetsExtension.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = WidgetsExtension.entitlements; sourceTree = "<group>"; };
+		DC08932927E51CE3005A547D /* ExternalAccessory.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = ExternalAccessory.framework; path = System/Library/Frameworks/ExternalAccessory.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +124,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				DC08932A27E51CE3005A547D /* ExternalAccessory.framework in Frameworks */,
 				90398A8527D8C06F00A8FB29 /* SwiftUI.framework in Frameworks */,
 				90398A8327D8C06F00A8FB29 /* WidgetKit.framework in Frameworks */,
 			);
@@ -132,6 +136,7 @@
 		9023168F27C1513300651CAF = {
 			isa = PBXGroup;
 			children = (
+				DC08932827E51CE3005A547D /* WidgetsExtension.entitlements */,
 				9023169A27C1513300651CAF /* Cryp2p */,
 				90398A8627D8C06F00A8FB29 /* Widgets */,
 				90398A8127D8C06F00A8FB29 /* Frameworks */,
@@ -214,6 +219,7 @@
 		90398A8127D8C06F00A8FB29 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				DC08932927E51CE3005A547D /* ExternalAccessory.framework */,
 				90398A8227D8C06F00A8FB29 /* WidgetKit.framework */,
 				90398A8427D8C06F00A8FB29 /* SwiftUI.framework */,
 			);
@@ -563,10 +569,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Cryp2p/Cryp2p.entitlements;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Cryp2p/Preview Content\"";
-				DEVELOPMENT_TEAM = H4NW3RCM58;
+				DEVELOPMENT_TEAM = 9K37685DN3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Cryp2p/Info.plist;
@@ -584,8 +591,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = fifarosta.Cp2p;
+				PRODUCT_BUNDLE_IDENTIFIER = fifarosta.Cryp2p;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "Rosťa to the moon";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -599,10 +607,11 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = Cryp2p/Cryp2p.entitlements;
-				CODE_SIGN_STYLE = Automatic;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Manual;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"Cryp2p/Preview Content\"";
-				DEVELOPMENT_TEAM = H4NW3RCM58;
+				DEVELOPMENT_TEAM = 9K37685DN3;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Cryp2p/Info.plist;
@@ -620,8 +629,9 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = fifarosta.Cp2p;
+				PRODUCT_BUNDLE_IDENTIFIER = fifarosta.Cryp2p;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "Rosťa to the moon";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -633,9 +643,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = WidgetsExtension.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = H4NW3RCM58;
+				DEVELOPMENT_TEAM = 9K37685DN3;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Widgets/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Widgets;
@@ -646,8 +658,9 @@
 					"@executable_path/../../Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = fifarosta.Cp2p.Widgets;
+				PRODUCT_BUNDLE_IDENTIFIER = fifarosta.Cryp2p.Widgets;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -660,9 +673,11 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				ASSETCATALOG_COMPILER_WIDGET_BACKGROUND_COLOR_NAME = WidgetBackground;
+				CODE_SIGN_ENTITLEMENTS = WidgetsExtension.entitlements;
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = H4NW3RCM58;
+				DEVELOPMENT_TEAM = 9K37685DN3;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Widgets/Info.plist;
 				INFOPLIST_KEY_CFBundleDisplayName = Widgets;
@@ -675,6 +690,7 @@
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = fifarosta.Cp2p.Widgets;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SKIP_INSTALL = YES;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

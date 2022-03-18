@@ -151,6 +151,10 @@ struct nfcButton: UIViewRepresentable {
             
             self.session = nil
         }
+        
+        func readerSessionDidBecomeActive(_ session: NFCNDEFReaderSession) {
+            // ahhahahahah
+        }
     }
 }
 
