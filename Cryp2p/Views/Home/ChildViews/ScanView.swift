@@ -119,7 +119,7 @@ struct nfcButton: UIViewRepresentable {
             }
             
             session = NFCNDEFReaderSession(delegate: self, queue: .main, invalidateAfterFirstRead: true)
-            session?.alertMessage = "Hold your iPhone near to scan!"
+            session?.alertMessage = "Hold your iPhone near a tag to scan it!"
             session?.begin()
         }
         
