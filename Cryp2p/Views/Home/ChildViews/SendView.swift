@@ -12,39 +12,37 @@ struct SendView: View {
     
     @EnvironmentObject var model: ContentModel
     
+    @State private var solanaInUSD: String = String(Float(ContentModel().amount) ?? 0.0 * 85)
+    
     var body: some View {
         ScrollView(showsIndicators: false) {
             VStack {
                 Heading(text: "Address")
                     .padding([.top], model.screenSize.width / 4.3)
                 
-                ZStack {
-                    Rectangle()
-                        .fill(model.objectsClrMedium)
-                        .frame(width: model.screenSize.width / 1.1, height: model.screenSize.width / 6)
-                        .cornerRadius(model.screenSize.width / 15)
-                    
-                    Text(model.phrase)
-                        .foregroundColor(model.fontClr)
-                        .font(.system(size: model.screenSize.width / 20))
-                        .frame(width: model.screenSize.width  / 1.3, height: model.screenSize.width / 10, alignment: .leading)
-                }
+                TextField("Enter Solana address", text: $model.phrase)
+                    .textInputAutocapitalization(.never)
+                    .disableAutocorrection(true)
+                    .padding()
+                    .background(model.objectsClrMedium)
+                    .foregroundColor(model.fontClr)
+                    .cornerRadius(model.screenSize.width / 15)
+                    .padding(.horizontal, model.screenSize.width / 10)
                 
                 Heading(text: "Amount")
                     .padding([.top], model.screenSize.width / 15)
                 
                 ZStack {
-                    Rectangle()
-                        .fill(model.objectsClrMedium)
-                        .frame(width: model.screenSize.width / 1.1, height: model.screenSize.width / 6)
-                        .cornerRadius(model.screenSize.width / 15)
-                    
-                    Text("0.1")
+                    TextField("Enter the amount", text: $model.amount)
+                        .textInputAutocapitalization(.never)
+                        .disableAutocorrection(true)
+                        .padding()
+                        .background(model.objectsClrMedium)
                         .foregroundColor(model.fontClr)
-                        .font(.system(size: model.screenSize.width / 15))
-                        .frame(width: model.screenSize.width  / 1.6, height: model.screenSize.width / 10, alignment: .leading)
+                        .cornerRadius(model.screenSize.width / 15)
+                        .padding(.horizontal, model.screenSize.width / 10)
                     
-                    Text("~ $9")
+                    Text("~ $\(solanaInUSD)")
                         .foregroundColor(model.buttonClrObscure)
                         .font(.system(size: model.screenSize.width / 20))
                         .frame(width: model.screenSize.width  / 1.5, height: model.screenSize.width / 10, alignment: .trailing)
