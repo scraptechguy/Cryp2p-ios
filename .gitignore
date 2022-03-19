@@ -90,3 +90,5 @@ fastlane/test_output
 iOSInjectionProject/
 Cryp2p.xcodeproj/project.xcworkspace/xcuserdata/rostislavbroz.xcuserdatad/UserInterfaceState.xcuserstate
 *.xcuserstate
+Widgets/.DS_Store
+.DS_Store
