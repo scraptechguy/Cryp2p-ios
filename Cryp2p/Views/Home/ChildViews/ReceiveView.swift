@@ -6,22 +6,17 @@
 //
 
 import SwiftUI
-import CoreImage
-import CoreImage.CIFilterBuiltins
 
 struct ReceiveView: View {
     // Access data in ContentModel.swift
     
     @EnvironmentObject var model: ContentModel
     
-    let context = CIContext()
-    let filter = CIFilter.qrCodeGenerator()
-    
     var body: some View {
         ZStack {
             if model.showingQRScan {
                 VStack {
-                    Image(uiImage: generateQRCode(from: model.addresses[model.primary]))
+                    Image(uiImage: model.generateQRCode(from: model.addresses[model.primary]))
                         .resizable()
                         .interpolation(.none)
                         .scaledToFit()
@@ -56,18 +51,6 @@ struct ReceiveView: View {
                 })
             }
         }
-    }
-    
-    func generateQRCode(from string: String) -> UIImage {
-        filter.message = Data(string.utf8)
-        
-        if let outputImage = filter.outputImage {
-            if let cgimg = context.createCGImage(outputImage, from: outputImage.extent) {
-                return UIImage(cgImage: cgimg)
-            }
-        }
-        
-        return UIImage(systemName: "xmark.circle") ?? UIImage()
     }
 }
 

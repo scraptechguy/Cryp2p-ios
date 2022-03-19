@@ -8,6 +8,8 @@
 import Foundation
 import SwiftUI
 import Combine
+import CoreImage
+import CoreImage.CIFilterBuiltins
 
 class ContentModel: ObservableObject {
     // MARK: Screen bounds
@@ -30,7 +32,7 @@ class ContentModel: ObservableObject {
     
     @AppStorage("onboardingShown") var onboardingShown: Bool = false
     @Published var viewShown: Int = 0
-    @AppStorage("primaryAddress") var primary: Int = 0
+    @AppStorage("primaryAddress") var primary: Int = 1
     @Published var showingWalletManagerSheet: Bool = false
     @Published var showingAddWalletSheet: Bool = false
     @Published var showingQRScan: Bool = true
@@ -39,6 +41,24 @@ class ContentModel: ObservableObject {
     @Published var amount: String = "0.0"
     @Published var addresses: [String] = ["0x709Cd5F1A1107eD1c4e00A42B349A22701Bebb86", "57xndEKxm8hjinu81YAzakxWiC2u7AxS7rZyC2y2KfDC"]
     @Published var nicknames: [String] = ["FífaRosťa", "RosťaFífa"]
+    
+    
+    // MARK: Generating QR Code
+    
+    let context = CIContext()
+    let filter = CIFilter.qrCodeGenerator()
+    
+    func generateQRCode(from string: String) -> UIImage {
+        filter.message = Data(string.utf8)
+        
+        if let outputImage = filter.outputImage {
+            if let cgimg = context.createCGImage(outputImage, from: outputImage.extent) {
+                return UIImage(cgImage: cgimg)
+            }
+        }
+        
+        return UIImage(systemName: "xmark.circle") ?? UIImage()
+    }
 }
 
 
