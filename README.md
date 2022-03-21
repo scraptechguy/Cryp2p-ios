@@ -34,6 +34,7 @@ Because we find painful:
 + Manipulation with wallet addresses
 + Sending wallet addresses electronically when you're standing next to the recepient
 
+
 ## Funtionality
 
 What can you do with the app?
