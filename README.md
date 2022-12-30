@@ -2,8 +2,22 @@
 
 Cryp2p is a Solana-based iOS native app that's focused on improving user experience of real-life crypto transactions. To achieve that, we use QR code system and NFC. 
 
-![Cryp2pPreviewHome](https://user-images.githubusercontent.com/75474651/158024017-8b259910-2a44-4d22-827e-ada654336d87.png)
+<div align="center">
+  <a href="https://github.com/scraptechguy/Cryp2p-ios/actions">
+    <img src="https://github.com/scraptechguy/Cryp2p-ios/actions/workflows/ios.yml/badge.svg">
+  </a>
+  <a href="https://github.com/scraptechguy/Cryp2p-ios/graphs/contributors">
+    <img src="https://img.shields.io/github/contributors/scraptechguy/Cryp2p-ios">
+  </a>
+  <a href="https://github.com/scraptechguy/Cryp2p-ios/issues">
+    <img src="https://img.shields.io/github/issues/scraptechguy/Cryp2p-ios">
+  </a>
+  <a href="https://github.com/scraptechguy/Cryp2p-ios/pulls">
+    <img src="https://img.shields.io/github/issues-pr/scraptechguy/Cryp2p-ios">
+  </a>
+</div>
 
+![Cryp2pPreviewHome](https://user-images.githubusercontent.com/75474651/158024017-8b259910-2a44-4d22-827e-ada654336d87.png)
 
 ## Cryp2p status
 
